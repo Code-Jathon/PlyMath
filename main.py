@@ -10,20 +10,20 @@ from integralesDefinidas import *
 def main():
     ventana= Tk()
     ventana.config(bg="white",bd=0)
-    ventana.title('IGS Calculator')
-    label= tkinter.Label(ventana, text="IGS Calculator", bg="white", fg="#007b99", )
+    ventana.title('PlyMath')
+    label= tkinter.Label(ventana, text="PlyMath", bg="white", fg="#007b99", )
     label.configure(font=("Bahnschrift Light", 19,tkFont.BOLD))
     label.pack()
     style = ttk.Style()    
     settings = {"TNotebook.Tab": {"configure": {"padding": [120, 5],
                                             "background": "#f39200",
-                                            "font":"Calibri, 11 "
+                                            "font":"Helvetica, 11 "
                                             }}}  
     style.theme_create("mi_estilo", parent="alt", settings=settings)
     style.theme_use("mi_estilo")
     
     notebook = ttk.Notebook(ventana)
-    notebook.pack(fill='both', expand='yes',padx=5, pady=20)
+    notebook.pack(fill='both', expand='yes',padx=7, pady=20)
     notebook.pressed_index = None
     pes0 = tkinter.Frame(notebook,background="white")
     
