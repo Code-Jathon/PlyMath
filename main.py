@@ -23,19 +23,21 @@ def main():
     ventana.config(bg="white",bd=0)
     ventana.title('PlyMath')
     label= tkinter.Label(ventana, text="PlyMath", bg="white", fg="#007b99", )
-    label.configure(font=("Bahnschrift Light", 19,tkFont.BOLD))
+    label.configure(font=("Bahnschrift Light bold", 19,tkFont.BOLD))
     label.pack()
     style = ttk.Style()    
-    settings = {"TNotebook.Tab": {"configure": {"padding": [120, 5],
+    settings = {"TNotebook.Tab": {"configure": {"padding": [111.2, 5],
                                             "background": "#f39200",
-                                            "font":"Helvetica, 11 "
+                                            "font":"Helvetica, 12"
                                             }}}  
     style.theme_create("mi_estilo", parent="alt", settings=settings)
     style.theme_use("mi_estilo")
     
     notebook = ttk.Notebook(ventana)
-    notebook.pack(fill='both', expand='yes',padx=7, pady=20)
+    notebook.pack(fill='both', expand='yes',padx=0, pady=10)
     notebook.pressed_index = None
+    pesInicio = tkinter.Frame(notebook, background="white")
+    notebook.add(pesInicio, text="Inicio")
     pes0 = tkinter.Frame(notebook,background="white")
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
@@ -45,7 +47,7 @@ def main():
     caja1 = Entry(pes0, width = 40, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
         #Resultado    
     resulI = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg = 'white')
-    muestraI = tk.Label(pes0, text = "" , width = "35", height = "1", font = ("Helvetica 14 italic bold"), foreground = "#007b99", background = "#f39200")
+    muestraI = tk.Label(pes0, text = "" , width = "35", height = "1", font = ("Helvetica 14 bold"), background = "white")
         #Grafica
     graficaI = tk.Label(pes0, text ="¿Desea conocer la grafica de la integral?", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
         #Menu Despegable
@@ -99,8 +101,7 @@ def main():
     menuD.current()
         #Solucion
     resulD = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg="white")
-    muestraD = tk.Label(pes0, text = "", width = "35", height = "1", font = ("Helvetica 14 italic bold"), bg = "white", foreground = "#007b99", 
-                        background = "#f39200")
+    muestraD = tk.Label(pes0, text = "", width = "35", height = "1", font = ("Helvetica 14  bold"), bg = "white")
 
         #Botones de verificacion
     def limpiarD():
@@ -188,9 +189,9 @@ def main():
         boton7.place_forget()
         
     #Botones_I&D
-    boton1 = Button(pes0, text = "INDEFINIDAS", width = "78", height = "3", font = ("Calibri 10 bold italic"),
-                    command = indefi, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
-    boton2 = Button(pes0, text = "DEFINIDAS", width = "80", height = "3", font = ("Calibri 10 bold italic"),
+    boton1 = Button(pes0, text = "Indefinidas", width = "78", height = "2", font = ("Helvetica 10 bold"),
+                    command = indefi, foreground = "white", bg = '#f39200', activebackground = 'white', activeforeground = '#f39200')
+    boton2 = Button(pes0, text = "Definidas", width = "80", height = "2", font = ("Helvetica 10 bold"),
                     command = defi, foreground = "white", bg = '#f39200', activebackground = 'white', activeforeground = '#f39200')
     #AGG botenes en pantalla
     boton1.grid(row = 1, column=0, padx = 16, pady = 30)
@@ -212,7 +213,7 @@ def main():
     , font = ("Helvetica 14"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     bot2fun.grid(row=3,column=0, pady= 6)
     fun2=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-    caj2 = Entry(pes1, width= 45, font= ("Calibri 16"), highlightbackground='#007b99'
+    caj2 = Entry(pes1, width= 45, font= ("Helvetica 16"), highlightbackground='#007b99'
     , highlightcolor='#f39200', highlightthickness=3)
     #accion boton
     def pun_cor():
@@ -232,11 +233,11 @@ def main():
     botpun.grid(row=5, column=0, pady= 8)
     liminfe = tk.Label(pes1, text="Ingrese limite inferior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     liminfe.grid(row=7, column=0)
-    caj3 = Entry(pes1,width= 45, font= ("Calibri 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
+    caj3 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
     caj3.grid(row=7, column=1, pady= 9)
     limsupe = tk.Label(pes1, text="Ingrese limite superior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     limsupe.grid(row=10, column=0)
-    caj4 = Entry(pes1,width= 45, font= ("Calibri 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
+    caj4 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
     caj4.grid(row=10, column=1, pady= 11)
     #accion boton
     def are():
@@ -388,10 +389,11 @@ def main():
     buttonHabilitar.place(x=45, y=80,width=180, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
     pes3 = tkinter.Frame(notebook,background="white")
-    notebook.add(pes3, text='About Us')
+    notebook.add(pes3, text='Help')
 
-    ventana.geometry("1200x650")
-    ventana.resizable(1,1)
+    w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
+    ventana.geometry("%dx%d+0+0" % (w, h))
+    #ventana.resizable(0,0)
     ventana.mainloop()
 
 if __name__=='__main__':
