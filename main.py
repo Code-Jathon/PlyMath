@@ -1,40 +1,53 @@
 from tkinter import *
-from tkinter import ttk
-import tkinter as tk
-import tkinter
-import tkinter.font as tkFont
-from tkinter import messagebox
+from sympy import *
+from Volumen import *
 from integralesIndefinidas import *
 from integralesDefinidas import *
+from areas import *
+from tkinter import ttk
+from sympy import Integral, integrate
+from sympy.core import symbol
+from sympy.core.numbers import Exp1 
+from tkinter import messagebox
+from sympy.plotting import plot
+from sympy import Symbol
+import tkinter
+import tkinter.font as tkFont
+import numpy as np
+import matplotlib.pyplot as plt 
+import tkinter as tk
 
 def main():
     ventana= Tk()
+    ventana.iconbitmap('data/logo.ico')
     ventana.config(bg="white",bd=0)
-    ventana.title('IGS Calculator')
-    label= tkinter.Label(ventana, text="IGS Calculator", bg="white", fg="#007b99", )
-    label.configure(font=("Bahnschrift Light", 19,tkFont.BOLD))
+    ventana.title('PlyMath')
+    label= tkinter.Label(ventana, text="PlyMath", bg="white", fg="#007b99", )
+    label.configure(font=("Bahnschrift Light bold", 19,tkFont.BOLD))
     label.pack()
     style = ttk.Style()    
-    settings = {"TNotebook.Tab": {"configure": {"padding": [120, 5],
+    settings = {"TNotebook.Tab": {"configure": {"padding": [111.2, 5],
                                             "background": "#f39200",
-                                            "font":"Calibri, 11 "
+                                            "font":"Helvetica, 12"
                                             }}}  
     style.theme_create("mi_estilo", parent="alt", settings=settings)
     style.theme_use("mi_estilo")
     
     notebook = ttk.Notebook(ventana)
-    notebook.pack(fill='both', expand='yes',padx=5, pady=20)
+    notebook.pack(fill='both', expand='yes',padx=0, pady=10)
     notebook.pressed_index = None
+    pesInicio = tkinter.Frame(notebook, background="white")
+    notebook.add(pesInicio, text="Inicio")
     pes0 = tkinter.Frame(notebook,background="white")
-    
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
         #Ecuacion
+    notebook.add(pes0, text='Integrales') 
     ecuaI = tk.Label(pes0, text ="Digite el problema:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
     caja1 = Entry(pes0, width = 40, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
         #Resultado    
     resulI = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg = 'white')
-    muestraI = tk.Label(pes0, text = "" , width = "35", height = "1", font = ("Helvetica 14 italic bold"), foreground = "#007b99", background = "#f39200")
+    muestraI = tk.Label(pes0, text = "" , width = "35", height = "1", font = ("Helvetica 14 bold"), background = "white")
         #Grafica
     graficaI = tk.Label(pes0, text ="¿Desea conocer la grafica de la integral?", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
         #Menu Despegable
@@ -88,8 +101,7 @@ def main():
     menuD.current()
         #Solucion
     resulD = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg="white")
-    muestraD = tk.Label(pes0, text = "", width = "35", height = "1", font = ("Helvetica 14 italic bold"), bg = "white", foreground = "#007b99", 
-                        background = "#f39200")
+    muestraD = tk.Label(pes0, text = "", width = "35", height = "1", font = ("Helvetica 14  bold"), bg = "white")
 
         #Botones de verificacion
     def limpiarD():
@@ -177,29 +189,211 @@ def main():
         boton7.place_forget()
         
     #Botones_I&D
-    boton1 = Button(pes0, text = "INDEFINIDAS", width = "78", height = "3", font = ("Calibri 10 bold italic"),
-                    command = indefi, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
-    boton2 = Button(pes0, text = "DEFINIDAS", width = "80", height = "3", font = ("Calibri 10 bold italic"),
+    boton1 = Button(pes0, text = "Indefinidas", width = "78", height = "2", font = ("Helvetica 10 bold"),
+                    command = indefi, foreground = "white", bg = '#f39200', activebackground = 'white', activeforeground = '#f39200')
+    boton2 = Button(pes0, text = "Definidas", width = "80", height = "2", font = ("Helvetica 10 bold"),
                     command = defi, foreground = "white", bg = '#f39200', activebackground = 'white', activeforeground = '#f39200')
     #AGG botenes en pantalla
     boton1.grid(row = 1, column=0, padx = 16, pady = 30)
     boton2.grid(row = 1, column=1, padx = 8, pady = 30)
-
-
+#----------FIN PARTE DE INTEGALES--------------------------------------#
     pes1 = tkinter.Frame(notebook,background="white")
-#--------Desarrollo de la pestaña Areas-----
-
-    pes2 = tkinter.Frame(notebook,background="white")
-#--------Desarrollo de la pestaña Volumenes-----
-
-    pes3 = tkinter.Frame(notebook,background="white")
-    notebook.add(pes0, text='Integrales')   
+#--------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
-    notebook.add(pes2, text='Volumen')
-    notebook.add(pes3, text='About Us')
+    fun1=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
+    fun1.grid(row=2, column=0, pady=4)
+    caj1 = Entry(pes1, width= 45, font = ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
+    caj1.grid(row=2, column=1, pady=4)
+    #accion boton
+    def sefu():
+        fun2.grid(row=4, column=0)
+        caj2.grid(row=4,column=1)
 
-    ventana.geometry("1200x650")
-    ventana.resizable(1,1)
+    bot2fun = tk.Button(pes1, text="Añadir segunda funcion", width = "20", height = "1", command=sefu 
+    , font = ("Helvetica 14"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    bot2fun.grid(row=3,column=0, pady= 6)
+    fun2=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    caj2 = Entry(pes1, width= 45, font= ("Helvetica 16"), highlightbackground='#007b99'
+    , highlightcolor='#f39200', highlightthickness=3)
+    #accion boton
+    def pun_cor():
+        e1 = caj1.get()
+        if not e1:
+            messagebox.showerror("Error", "Ingrese una funcion") 
+        e2 = caj2.get()
+        if not e2:
+            e2 = 0
+        aux1 = puntos_corte(e1, e2)
+        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "35", height = "1"
+        , font = ("Helvetica 14"), bg='white')
+        resultPc.grid(row=6,column=0)
+
+    botpun = tk.Button(pes1, text="Calcular puntos de corte", width = "20", height = "1", command = pun_cor
+    , font = ("Helvetica 14") ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    botpun.grid(row=5, column=0, pady= 8)
+    liminfe = tk.Label(pes1, text="Ingrese limite inferior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    liminfe.grid(row=7, column=0)
+    caj3 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
+    caj3.grid(row=7, column=1, pady= 9)
+    limsupe = tk.Label(pes1, text="Ingrese limite superior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    limsupe.grid(row=10, column=0)
+    caj4 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
+    caj4.grid(row=10, column=1, pady= 11)
+    #accion boton
+    def are():
+        e1 = caj1.get()
+        if not e1:
+            messagebox.showerror("Error", "Ingrese una funcion") 
+        e2 = caj2.get()
+        if not e2:
+            e2 = 0
+        l1 = caj3.get()
+        l2 = caj4.get()
+        aux2 = area(e1, e2, l1, l2)
+        e1 = aux2[0]
+        e2 = aux2[1]
+        aux3 = aux2[2]
+        funmay = tk.Label(pes1, text="La funcion mayor es: " + str(e1), width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        funmay.grid(row=16,column=0)
+        funmen = tk.Label(pes1, text="La funcion menor es: " + str(e2), width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        funmen.grid(row=18,column=0)      
+        resulta = tk.Label(pes1, text="El area de la funcion es: " + str(aux3) + " U²", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        resulta.grid(row=20,column=0)
+
+    botresult = tk.Button(pes1, text="Calcular", width = "20", height = "1",command = are, font = ("Helvetica 14")
+    ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    botresult.grid(row=14,column=0, pady=12)  
+    #accion boton
+    def gra():
+        e1 = caj1.get()
+        if not e1:
+            messagebox.showerror("Error", "Ingrese una funcion") 
+        e2 = caj2.get()
+        if not e2:
+            e2 = 0
+        l1 = caj3.get()
+        l2 = caj4.get()
+        graficar(e1, e2, l1, l2)
+
+    botgraf = tk.Button(pes1, text="Graficar", width = "20", height = "1",command = gra, font = ("Helvetica 14")
+    ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    botgraf.grid(row=24,column=0, pady=16)  
+    #accion boton
+    def eliminar():
+        caj1.delete(0, END)
+        caj2.delete(0 , END)
+        caj3.delete(0 , END)
+        caj4.delete(0 , END)
+        caj1.focus_set()
+        resultPc = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        resultPc.grid(row=6,column=0)
+        funmay = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        funmay.grid(row=16,column=0)
+        funmen = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        funmen.grid(row=18,column=0)      
+        resulta = tk.Label(pes1, text=" " , width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        resulta.grid(row=20,column=0)
+
+    botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")
+    ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    botelim.grid(row=24,column=1, pady=20)  
+#----------------------FIN PARTE DE AREAS----------------------------------
+    pes2 = tkinter.Frame(notebook,background="white")
+#-------------------------------------INICIO PARTE DE VOLUMEN-----------------------------------------------------------------------#
+    notebook.add(pes2, text='Volumen')
+#HABILITAR TEXTBOX PARA SEGUNDA FUNCION    
+    def Habilitar():
+        boxFuncion2.config(state=NORMAL)
+
+    def LimpiarCampos():
+        boxFuncion1.delete(0, END)
+        boxFuncion2.delete(0 , END)
+        boxLimi1.delete(0 , END)
+        boxLimi2.delete(0 , END)
+        boxFuncion1.focus_set()
+        boxFuncion2.config(state=DISABLED)
+        FuncionMayor =  Label(pes2, text="", width="500", height="35", bg='white')
+        FuncionMayor.place(x=540, y=25, width=500, height=35)
+        FuncionMenor = Label(pes2, text="", width="500", height="35", bg='white')
+        FuncionMenor.place(x=540, y=60, width=500, height=35)
+        ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
+        ResultadoVolumen.place(x=540, y=90, width="500", height="35")
+#FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
+    def Grafica():
+        Expresion1 = boxFuncion1.get()
+        if not Expresion1:
+            messagebox.showerror("Error", "Ingrese una funcion") 
+        Expresion2 = boxFuncion2.get()
+        if not Expresion2:
+            Expresion2 = 0
+        Limite1 = boxLimi1.get()
+        Limite2 = boxLimi2.get()
+        Graficar(Expresion1, Expresion2, Limite1, Limite2)
+#FUNCION PARA HACER EL PROCESO DEL CALCULO DEL VOLUMEN 
+    def vol():
+        Expresion1=boxFuncion1.get()
+        if not Expresion1:
+            messagebox.showerror("Error", "Ingrese una función")
+        Expresion2=boxFuncion2.get()
+        if not Expresion2:
+            Expresion2=0 #EN LA CAJA 2 PARA SEGUNDA FUNCIÓN LLEVAR CERO SI NO DIGITÓ NADA
+        Limite1=boxLimi1.get()
+        if not Limite1:
+            messagebox.showerror("Error", "Ingrese los límites")
+        Limite2=boxLimi2.get()
+        auxResultado=volumenTotal(Expresion1,Expresion2,Limite1, Limite2)
+        Expresion1 = auxResultado[0]
+        Expresion2 = auxResultado[1]
+        auxilio3 = auxResultado[2]
+        FuncionMayor =  Label(pes2, text="Función Mayor: " + str(Expresion1),width = "500", height = "35", font = ("Helvetica 16"), bg='white') #SALIDAS DE EXPRESIONES MENORES Y MAYORES
+        FuncionMayor.place(x=540, y=25, width=500, height=35)
+        FuncionMenor = Label(pes2, text="Función Menor: " + str(Expresion2),width = "500", height = "35", font = ("Helvetica 16"), bg='white')
+        FuncionMenor.place(x=540, y=60, width=500, height=35)
+        ResultadoVolumen = Label(pes2, text="El volúmen total: " + str(auxilio3),width = "500", height = "35", font = ("Helvetica 16"), bg='white')
+        ResultadoVolumen.place(x=540, y=90, width=500, height=35)
+ #ETIQUETAS DE TEXTO
+    lblFuncion1=Label(pes2, text="Ingrese la función en términos de x:", width = "35", height = "1", font = ("Helvetica 14"), bg='white') #PRIMERA FUNCIÓN
+    lblFuncion1.place(x=20, y=25, width=300, height=25)#POSICIONAMIENTO 
+
+    lblFuncion2=Label(pes2,text="Ingrese la función en términos de x:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    lblFuncion2.place(x=20, y=150, width=300, height=25)#POSICIONAMIENTO
+
+    lblLimite1=Label(pes2,text="Ingrese límite inferior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#PRIMER LIMITE (INFERIOR)
+    lblLimite1.place(x=1, y=230, width=225, height=30)#POSICIONAMIENTO
+
+    lbllimite2=Label(pes2,text="Ingrese limite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#SEGUNDO LIMITE (SUPERIOR)
+    lbllimite2.place(x=5, y=300, width=225, height=30)#POSICIONAMIENTO
+#CAJAS DE ENTRADA DE FUNCIONES
+    boxFuncion1=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3 ) #CAJA PARA PRIMERA FUNCION
+    boxFuncion1.place(x=325,y=25, width=205, height=30)#POSICIONAMIENTO
+
+    boxFuncion2=Entry(pes2, state=DISABLED,width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3 )#CAJA PARA SEGUNDA FUNCION
+    boxFuncion2.place(x=325, y=150, width=205, height=30)#POSICIONAMIENTO
+
+    boxLimi1=Entry(pes2,width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)#CAJA PARA LIMITE INFERIOR
+    boxLimi1.place(x=325, y=230, width=145, height=25)#POSICIONAMIENTO
+
+    boxLimi2=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)#CAJA PARA LIMITE SUPERIOR
+    boxLimi2.place(x=325, y=300, width=145, height=25)#POSICIONAMIENTO
+#BOTONERA
+    buttonCalcular=Button(pes2,text="Calcular", command= vol, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')#BOTÓN PARA CALCULAR EL VOLUMEN
+    buttonCalcular.place(x=70, y=340, width=110, height=45)#POSICIONAMIENTO
+
+    buttonGrafica=Button(pes2, text="Gráfica", command=Grafica, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')#Llama a la funcion de la gráfica
+    buttonGrafica.place(x=70, y=400, width=110, height=45)
+
+    buttonLimpiar=Button(pes2, text="Limpiar Campos", command=LimpiarCampos, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    buttonLimpiar.place(x=325, y=400, width=180, height=45)
+
+    buttonHabilitar=Button(pes2, text="Añadir función", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    buttonHabilitar.place(x=45, y=80,width=180, height=45)
+#----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
+    pes3 = tkinter.Frame(notebook,background="white")
+    notebook.add(pes3, text='Help')
+
+    w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
+    ventana.geometry("%dx%d+0+0" % (w, h))
+    #ventana.resizable(0,0)
     ventana.mainloop()
 
 if __name__=='__main__':
