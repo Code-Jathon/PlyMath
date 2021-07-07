@@ -16,6 +16,7 @@ import tkinter.font as tkFont
 import numpy as np
 import matplotlib.pyplot as plt 
 import tkinter as tk
+from PIL import Image, ImageTk
 
 def main():
     ventana= Tk()
@@ -26,7 +27,7 @@ def main():
     label.configure(font=("Bahnschrift Light bold", 19,tkFont.BOLD))
     label.pack()
     style = ttk.Style()    
-    settings = {"TNotebook.Tab": {"configure": {"padding": [111.2, 5],
+    settings = {"TNotebook.Tab": {"configure": {"padding": [167, 10 ],
                                             "background": "#f39200",
                                             "font":"Helvetica, 12"
                                             }}}  
@@ -363,6 +364,7 @@ def main():
 
     lbllimite2=Label(pes2,text="Ingrese limite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#SEGUNDO LIMITE (SUPERIOR)
     lbllimite2.place(x=5, y=300, width=225, height=30)#POSICIONAMIENTO
+
 #CAJAS DE ENTRADA DE FUNCIONES
     boxFuncion1=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3 ) #CAJA PARA PRIMERA FUNCION
     boxFuncion1.place(x=325,y=25, width=205, height=30)#POSICIONAMIENTO
@@ -388,9 +390,26 @@ def main():
     buttonHabilitar=Button(pes2, text="Añadir función", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     buttonHabilitar.place(x=45, y=80,width=180, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
+#-----------------------------INICIO PARTE HELP-------------------------------#
     pes3 = tkinter.Frame(notebook,background="white")
     notebook.add(pes3, text='Help')
+    imagenLista = PhotoImage(file="data\entrada.png")
+    imagenLista = imagenLista.subsample(1,1)
+    labelImagen = Label(pes3, image = imagenLista)
+    labelImagen.place(x=0, y=50, width=600, height=800)    
+    lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 36"), bg='white')
+    lblManual.place(x=700, y=300)
+    lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 36"), bg='white')
+    lblGuia.place(x=700, y=400)
+    btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    btnAquiManual.place(x=1200, y=315)
+    btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    btnAquiGuia.place(x=1200, y= 400)
+    btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    btnAbout.place(x=1000, y=550)
 
+
+#---------------------FIN PARTE HELP------------------------------#
     w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
     ventana.geometry("%dx%d+0+0" % (w, h))
     #ventana.resizable(0,0)
