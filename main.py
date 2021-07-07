@@ -390,10 +390,15 @@ def main():
     buttonHabilitar=Button(pes2, text="Añadir función", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     buttonHabilitar.place(x=45, y=80,width=180, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 #-----------------------------INICIO PARTE HELP-------------------------------#
     pes3 = tkinter.Frame(notebook,background="white")
     notebook.add(pes3, text='Help')
     imagenLista = PhotoImage(file="data\entrada.png")
+<<<<<<< Updated upstream
     imagenLista = imagenLista.subsample(1,1)
     labelImagen = Label(pes3, image = imagenLista)
     labelImagen.place(x=0, y=50, width=600, height=800)    
@@ -407,6 +412,21 @@ def main():
     btnAquiGuia.place(x=1200, y= 400)
     btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     btnAbout.place(x=1000, y=550)
+=======
+    imagenLista = imagenLista.subsample(2,2)
+    labelImagen = Label(pes3, image = imagenLista)
+    labelImagen.place(x=70, y=50, width=280, height=445)    
+    lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 26"), bg='white')
+    lblManual.place(x=400, y=100)
+    lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 26"), bg='white')
+    lblGuia.place(x=380, y=200)
+    btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    btnAquiManual.place(x=800, y=100)
+    btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    btnAquiGuia.place(x=800, y= 200)
+    btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#f39200', activebackground='white', activeforeground='#007b99')
+    btnAbout.place(x=800, y=300)
+>>>>>>> Stashed changes
 
 
 #---------------------FIN PARTE HELP------------------------------#
