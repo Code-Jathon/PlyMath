@@ -39,13 +39,11 @@ def volumenTotal(expresion1, expresion2, limite1, limite2):
     lista=evaluar(expresion1, expresion2, limite1)
     expresion1 = lista[0]
     expresion2 = lista[1]
-    #d1 = np.pi * Integral(expresion1**2,(x,limite1,limite2)).doit()
-    #d2 = np.pi * Integral(expresion2**2,(x,limite1,limite2)).doit()
-    #volumenR =(d1-d2)
-    #volumenR=sympify(volumenR)
-    res = integrate(((expresion1)**2 - (expresion2)**2), (x, limite1, limite2))
-    print(res)
-    return expresion1, expresion2,res
+    d1 = np.pi * Integral(expresion1**2,(x,limite1,limite2)).doit()
+    d2 = np.pi * Integral(expresion2**2,(x,limite1,limite2)).doit()
+    volumenR =(d1-d2)
+    volumenR=sympify(volumenR)
+    return expresion1, expresion2,volumenR
 #FUNCION PARA GRAFICAR
 def Graficar(expresion1, expresion2, limiteInf1, limiteSup2):   
     limiteInf1=sympify(limiteInf1)

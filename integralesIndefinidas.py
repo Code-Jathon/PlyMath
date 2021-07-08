@@ -16,11 +16,8 @@ def ecuacionI(fx): #Lee la funcion
     integral = integrate(fx, dx) #Integra la funcion y lo toma
     print("El resultado de la integral es: ")
     pprint(integral)
-    integral = str(integral)
-    c=" + C"
-    sol=str(integral + c)
-    print(sol)
-    return sol
+
+    return integral
     
 def graficaIS(fx, sol ,resp): #Menu Despegable
   
