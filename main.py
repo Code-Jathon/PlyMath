@@ -26,7 +26,7 @@ def main():
     style.theme_use("mi_estilo")
     
     notebook = ttk.Notebook(ventana)
-    notebook.pack(fill='both', expand='yes',padx=0, pady=10)
+    notebook.pack(fill='both', expand='yes',padx=3, pady=10)
     notebook.pressed_index = None
     pesInicio = tkinter.Frame(notebook, background="white")
     notebook.add(pesInicio, text="Inicio")
@@ -166,9 +166,9 @@ def main():
         muestraI.place(x = 630, y = 180)
         graficaI.grid(row = 4, column = 0, pady = 10)
         menuI.place(x = 630, y = 245)
-        boton3.grid(row = 6, column= 0, pady = 30)
+        boton3.grid(row = 6, column= 0, pady = 40)
         boton4.grid(row = 6, column= 1)
-        botonGraf.place(x = 460, y = 310)
+        botonGraf.place(x = 540, y = 309)
 
     def defi():
         cajaInfe.focus_set()
@@ -183,9 +183,9 @@ def main():
         menuD.place(x = 630 , y = 310)
         resulD.grid(row = 7, column = 0)
         muestraD.place( x = 630, y = 360)    
-        boton5.grid(row = 8, column = 0, pady = 25)
+        boton5.grid(row = 8, column = 0, pady = 35)
         boton6.grid(row = 8, column = 1)
-        boton7.place(x = 461, y = 411)
+        boton7.place(x = 540, y = 410)
 
     #OcultarWidgets
     def ocutarI():
@@ -287,7 +287,7 @@ def main():
         resulta.place(x=10, y=460)
 
     botresult = tk.Button(pes1, text="Calcular", width = "20", height = "1",command = are, font = ("Helvetica 14")
-    ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+                            ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     botresult.grid(row=14,column=0, pady=12)  
     botresult.place(x=50, y=310)
     #accion boton
@@ -303,7 +303,7 @@ def main():
         graficar(e1, e2, l1, l2)
 
     botgraf = tk.Button(pes1, text="Graficar", width = "20", height = "1",command = gra, font = ("Helvetica 14")
-    ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+                        ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     botgraf.place(x=50, y=520)
     #accion boton
     def eliminar():
@@ -322,7 +322,7 @@ def main():
         resulta.place(x=10, y=460)
 
     botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")
-    ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+                        ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     botelim.place(x=400, y=520)
 #----------------------FIN PARTE DE AREAS----------------------------------
     pes2 = tkinter.Frame(notebook,background="white")
@@ -404,16 +404,20 @@ def main():
     boxLimi2=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)#CAJA PARA LIMITE SUPERIOR
     boxLimi2.place(x=325, y=300, width=145, height=25)#POSICIONAMIENTO
 #BOTONERA
-    buttonCalcular=Button(pes2,text="Calcular", command= vol, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')#BOTÓN PARA CALCULAR EL VOLUMEN
+    buttonCalcular=Button(pes2,text="Calcular", command= vol, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
+                           bg='#007b99', activebackground='white', activeforeground='#007b99')#BOTÓN PARA CALCULAR EL VOLUMEN
     buttonCalcular.place(x=70, y=340, width=110, height=45)#POSICIONAMIENTO
 
-    buttonGrafica=Button(pes2, text="Gráfica", command=Grafica, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')#Llama a la funcion de la gráfica
+    buttonGrafica=Button(pes2, text="Gráfica", command=Grafica, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
+                           bg='#007b99', activebackground='white', activeforeground='#007b99')#Llama a la funcion de la gráfica
     buttonGrafica.place(x=70, y=400, width=110, height=45)
 
-    buttonLimpiar=Button(pes2, text="Limpiar Campos", command=LimpiarCampos, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    buttonLimpiar=Button(pes2, text="Limpiar Campos", command=LimpiarCampos, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
+                           bg='#007b99', activebackground='white', activeforeground='#007b99')
     buttonLimpiar.place(x=325, y=400, width=180, height=45)
 
-    buttonHabilitar=Button(pes2, text="Añadir función", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    buttonHabilitar=Button(pes2, text="Añadir función", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
+                           bg='#007b99', activebackground='white', activeforeground='#007b99')
     buttonHabilitar.place(x=45, y=80,width=180, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
 #-----------------------------INICIO PARTE HELP-------------------------------#
@@ -421,18 +425,30 @@ def main():
     notebook.add(pes3, text='Help')
     imagenLista = PhotoImage(file="data\entrada.png")
 
+    dialogo = """Version: 1.0
+Fecha: 6 de Agosto del 2021 
+Python: 3.9.5
+OS: Windows 10 x 64 bits"""
+
+    def about(dialogue):
+        messagebox.showinfo("PlyMath", dialogue)
+
     imagenLista = imagenLista.subsample(2,2)
     labelImagen = Label(pes3, image = imagenLista)
     labelImagen.place(x=70, y=50, width=280, height=445)    
-    lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 26"), bg='white')
+    lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
     lblManual.place(x=400, y=100)
-    lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 26"), bg='white')
-    lblGuia.place(x=380, y=200)
-    btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
+    lblGuia.place(x=400, y=200)
+    btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
+                            bg='#007b99', activebackground='white', activeforeground='#007b99')
     btnAquiManual.place(x=800, y=100)
-    btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
+    btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
+                            bg='#007b99', activebackground='white', activeforeground='#007b99')
     btnAquiGuia.place(x=800, y= 200)
-    btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#f39200', activebackground='white', activeforeground='#007b99')
+
+    btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
+                            bg='#f39200', activebackground='white', activeforeground='#007b99', command = lambda: about(dialogo))
     btnAbout.place(x=800, y=300)
 #---------------------FIN PARTE HELP------------------------------#
     w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
