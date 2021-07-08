@@ -340,11 +340,11 @@ def main():
         boxFuncion1.focus_set()
         boxFuncion2.config(state=DISABLED)
         FuncionMayor =  Label(pes2, text="", width="500", height="35", bg='white')
-        FuncionMayor.place(x=200, y=500, width=500, height=35)
+        FuncionMayor.place(x=80, y=450, width=500, height=35)
         FuncionMenor = Label(pes2, text="", width="500", height="35", bg='white')
-        FuncionMenor.place(x=200, y=550, width=500, height=35)
+        FuncionMenor.place(x=80, y=500, width=500, height=35)
         ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
-        ResultadoVolumen.place(x=200, y=600, width="500", height="35")
+        ResultadoVolumen.place(x=500, y=475, width="500", height="35")
 #FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
     def Grafica():
         Expresion1 = boxFuncion1.get()
