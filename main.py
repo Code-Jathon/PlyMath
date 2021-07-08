@@ -74,7 +74,7 @@ def main():
         #Resultado    
     resulI = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg = 'white')
     muestraI = tk.Label(pes0, text = "" , width = "35", height = "1", font = ("Helvetica 14 bold"), background = "white")
-        #Grafica
+        #Grafica    
     graficaI = tk.Label(pes0, text ="¿Desea conocer la grafica de la integral?", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
         #Menu Despegable
     menuI = ttk.Combobox(pes0, width = "35", font = ("Helvetica 18"), state = "readonly", foreground = "#007b99",
@@ -105,7 +105,7 @@ def main():
                     command = obtenerI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton3 = Button(pes0, text = "Borrar", width = "20", height = "1", font = ("Helvetica 14 bold"), 
                     command = limpiarI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
-    boton4 = Button(pes0, text = "Ingresar", width = "20", height = "1", font = ("Helvetica 14 bold"),
+    boton4 = Button(pes0, text = "Calcular", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = save, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     #-----------Parte Definidas-----------------
         #Limites
@@ -150,7 +150,7 @@ def main():
 
     boton5 = Button(pes0, text = "Borrar", width = "20", height = "1", font = ("Helvetica 14 bold"), 
                     command = limpiarD, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
-    boton6 = Button(pes0, text = "Resultado", width = "20", height = "1", font = ("Helvetica 14 bold"),
+    boton6 = Button(pes0, text = "Calcular", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = obtenerD, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton7 = Button(pes0, text = "Grafica", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = lambda: graficaES(caja2.get()), foreground = "white", bg = '#007b99', activebackground = 'white', 
@@ -373,58 +373,58 @@ def main():
         Expresion2 = auxResultado[1]
         auxilio3 = auxResultado[2]
         FuncionMayor =  Label(pes2, text="Función Mayor: " + str(Expresion1),width = "500", height = "35", font = ("Helvetica 16"), bg='white') #SALIDAS DE EXPRESIONES MENORES Y MAYORES
-        FuncionMayor.place(x=200, y=500, width=500, height=35)
+        FuncionMayor.place(x=80, y=450, width=500, height=35)
         FuncionMenor = Label(pes2, text="Función Menor: " + str(Expresion2),width = "500", height = "35", font = ("Helvetica 16"), bg='white')
-        FuncionMenor.place(x=200, y=550, width=500, height=35)
-        ResultadoVolumen = Label(pes2, text="El volúmen total: " + str(auxilio3),width = "500", height = "35", font = ("Helvetica 16"), bg='white')
-        ResultadoVolumen.place(x=200, y=600, width=500, height=35)
+        FuncionMenor.place(x=80, y=500, width=500, height=35)
+        ResultadoVolumen = Label(pes2, text="El volúmen es: (" + str(auxilio3) +") π U³",width = "500", height = "35", font = ("Helvetica 16"), bg='white')
+        ResultadoVolumen.place(x=500, y=475, width=500, height=35)
  #ETIQUETAS DE TEXTO
     lblFuncion1=Label(pes2, text="Ingrese la función en términos de x:", width = "35", height = "1", font = ("Helvetica 14"), bg='white') #PRIMERA FUNCIÓN
-    lblFuncion1.place(x=350, y=35, width=300, height=25)#POSICIONAMIENTO 
+    lblFuncion1.place(x=200, y=35, width=300, height=25)#POSICIONAMIENTO 
 
     lblFuncion2=Label(pes2,text="Ingrese la función en términos de x:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-    lblFuncion2.place(x=350, y=130, width=300, height=25)#POSICIONAMIENTO
+    lblFuncion2.place(x=200, y=140, width=300, height=25)#POSICIONAMIENTO
 
     lblLimite1=Label(pes2,text="Ingrese límite inferior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#PRIMER LIMITE (INFERIOR)
-    lblLimite1.place(x=350, y=225, width=225, height=30)#POSICIONAMIENTO
+    lblLimite1.place(x=230, y=210, width=225, height=30)#POSICIONAMIENTO
 
     lbllimite2=Label(pes2,text="Ingrese limite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#SEGUNDO LIMITE (SUPERIOR)
-    lbllimite2.place(x=350, y=320, width=225, height=30)#POSICIONAMIENTO
+    lbllimite2.place(x=230, y=290, width=225, height=30)#POSICIONAMIENTO
 
 #CAJAS DE ENTRADA DE FUNCIONES
     boxFuncion1=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3 ) #CAJA PARA PRIMERA FUNCION
-    boxFuncion1.place(x=690,y=35, width=300, height=30)#POSICIONAMIENTO
+    boxFuncion1.place(x=540,y=35, width=300, height=30)#POSICIONAMIENTO
 
     boxFuncion2=Entry(pes2, state=DISABLED,width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3 )#CAJA PARA SEGUNDA FUNCION
-    boxFuncion2.place(x=690, y=130, width=300, height=30)#POSICIONAMIENTO
+    boxFuncion2.place(x=540, y=140, width=300, height=30)#POSICIONAMIENTO
 
     boxLimi1=Entry(pes2,width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)#CAJA PARA LIMITE INFERIOR
-    boxLimi1.place(x=690, y=225, width=145, height=25)#POSICIONAMIENTO
+    boxLimi1.place(x=540, y=210, width=145, height=25)#POSICIONAMIENTO
 
     boxLimi2=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)#CAJA PARA LIMITE SUPERIOR
-    boxLimi2.place(x=690, y=320, width=145, height=25)#POSICIONAMIENTO
+    boxLimi2.place(x=540, y=290, width=145, height=25)#POSICIONAMIENTO
 #BOTONERA
     buttonCalcular=Button(pes2,text="Calcular", command= vol, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
                            bg='#007b99', activebackground='white', activeforeground='#007b99')#BOTÓN PARA CALCULAR EL VOLUMEN
-    buttonCalcular.place(x=300, y=400, width=110, height=45)#POSICIONAMIENTO
+    buttonCalcular.place(x=300, y=370, width=110, height=45)#POSICIONAMIENTO
 
     buttonGrafica=Button(pes2, text="Gráfica", command=Grafica, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
                            bg='#007b99', activebackground='white', activeforeground='#007b99')#Llama a la funcion de la gráfica
-    buttonGrafica.place(x=700, y=400, width=110, height=45)
+    buttonGrafica.place(x=500, y=370, width=110, height=45)
 
     buttonLimpiar=Button(pes2, text="Limpiar", command=LimpiarCampos, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
                            bg='#007b99', activebackground='white', activeforeground='#007b99')
-    buttonLimpiar.place(x=900, y=400, width=110, height=45)
+    buttonLimpiar.place(x=700, y=370, width=110, height=45)
 
-    buttonHabilitar=Button(pes2, text="Agregar", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
+    buttonHabilitar=Button(pes2, text="Agregar segunda función", command=Habilitar, font = ("Helvetica 16"),foreground="white",
                            bg='#007b99', activebackground='white', activeforeground='#007b99')
-    buttonHabilitar.place(x=500, y=400,width=110, height=45)
+    buttonHabilitar.place(x=540, y=80,width=300, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
 #-----------------------------INICIO PARTE HELP-------------------------------#
     pes3 = tkinter.Frame(notebook,background="white")
     notebook.add(pes3, text='Help')
     imagenLista = PhotoImage(file="data\entrada.png")
-
+    logo_help = PhotoImage(file="data\logo.png")
     dialogo = """Version: 1.0
 Fecha: 6 de Agosto del 2021 
 Python: 3.9.5
@@ -435,21 +435,24 @@ OS: Windows 10 x 64 bits"""
 
     imagenLista = imagenLista.subsample(2,2)
     labelImagen = Label(pes3, image = imagenLista)
-    labelImagen.place(x=70, y=50, width=280, height=445)    
+    labelImagen.place(x=70, y=50, width=280, height=445) 
+    logo_help = logo_help.subsample(2,2)
+    label_logo = Label(pes3, image=logo_help)
+    label_logo.place(x=650, y=50, width=230, height=195) 
     lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
-    lblManual.place(x=400, y=100)
+    lblManual.place(x=400, y=300)
     lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
-    lblGuia.place(x=400, y=200)
+    lblGuia.place(x=400, y=400)
     btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
                             bg='#007b99', activebackground='white', activeforeground='#007b99')
-    btnAquiManual.place(x=800, y=100)
+    btnAquiManual.place(x=800, y=300)
     btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
                             bg='#007b99', activebackground='white', activeforeground='#007b99')
-    btnAquiGuia.place(x=800, y= 200)
+    btnAquiGuia.place(x=800, y= 400)
 
     btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
                             bg='#f39200', activebackground='white', activeforeground='#007b99', command = lambda: about(dialogo))
-    btnAbout.place(x=800, y=300)
+    btnAbout.place(x=800, y=500)
 #---------------------FIN PARTE HELP------------------------------#
     w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
     ventana.geometry("%dx%d+0+0" % (w, h))
