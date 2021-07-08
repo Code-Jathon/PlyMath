@@ -1,22 +1,13 @@
 from tkinter import *
-from sympy import *
 from Volumen import *
 from integralesIndefinidas import *
 from integralesDefinidas import *
 from areas import *
 from tkinter import ttk
-from sympy import Integral, integrate
-from sympy.core import symbol
-from sympy.core.numbers import Exp1 
 from tkinter import messagebox
-from sympy.plotting import plot
-from sympy import Symbol
 import tkinter
 import tkinter.font as tkFont
-import numpy as np
-import matplotlib.pyplot as plt 
 import tkinter as tk
-from PIL import Image, ImageTk
 
 def main():
     ventana= Tk()
@@ -27,7 +18,7 @@ def main():
     label.configure(font=("Bahnschrift Light bold", 19,tkFont.BOLD))
     label.pack()
     style = ttk.Style()    
-    settings = {"TNotebook.Tab": {"configure": {"padding": [167, 10 ],
+    settings = {"TNotebook.Tab": {"configure": {"padding": [111.2, 5],
                                             "background": "#f39200",
                                             "font":"Helvetica, 12"
                                             }}}  
@@ -39,6 +30,40 @@ def main():
     notebook.pressed_index = None
     pesInicio = tkinter.Frame(notebook, background="white")
     notebook.add(pesInicio, text="Inicio")
+
+    img1=PhotoImage(file="data/Area.png")
+    img1=img1.subsample(3,3)
+    lblarea=tk.Label(pesInicio, image=img1, borderwidth=0, highlightthickness=0)
+    lblarea.place(x=40, y= 10)
+
+    img2=PhotoImage(file="data/volumen.png")
+    img2=img2.subsample(3,3)
+    lblvol=tk.Label(pesInicio, image=img2, borderwidth=0, highlightthickness=0)
+    lblvol.place(x=700, y= 10)
+
+    img3=PhotoImage(file="data/g1.png")
+    img3=img3.subsample(4,4)
+    lblg1=tk.Label(pesInicio, image=img3, borderwidth=0, highlightthickness=0)
+    lblg1.place(x=7, y=350)
+
+    img4=PhotoImage(file="data/g2.png")
+    img4=img4.subsample(4,4)
+    lblg2=tk.Label(pesInicio, image=img4, borderwidth=0, highlightthickness=0)
+    lblg2.place(x=455, y=350)
+
+    img5=PhotoImage(file="data/g3.png")
+    img5=img5.subsample(4,4)
+    lblg3=tk.Label(pesInicio, image=img5, borderwidth=0, highlightthickness=0)
+    lblg3.place(x=900, y=350)
+    
+    def botmore():
+        notebook.select(pes3)
+
+    botmas = tk.Button(pesInicio, text="Más funciones", width = "20", height = "1",command=botmore, font = ("Helvetica 14")
+    ,foreground="black", bg='#f39200', activebackground='white', activeforeground='#f39200')
+    botmas.place(x=120, y=540)
+
+
     pes0 = tkinter.Frame(notebook,background="white")
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
@@ -202,17 +227,17 @@ def main():
 #--------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
     fun1=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
-    fun1.grid(row=2, column=0, pady=4)
+    fun1.place(x=10, y=25)
     caj1 = Entry(pes1, width= 45, font = ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
-    caj1.grid(row=2, column=1, pady=4)
+    caj1.place(x=400, y=25)
     #accion boton
     def sefu():
-        fun2.grid(row=4, column=0)
-        caj2.grid(row=4,column=1)
+        fun2.place(x=10, y=100)
+        caj2.place(x=400, y=100)
 
     bot2fun = tk.Button(pes1, text="Añadir segunda funcion", width = "20", height = "1", command=sefu 
     , font = ("Helvetica 14"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    bot2fun.grid(row=3,column=0, pady= 6)
+    bot2fun.place(x=50, y=60)
     fun2=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     caj2 = Entry(pes1, width= 45, font= ("Helvetica 16"), highlightbackground='#007b99'
     , highlightcolor='#f39200', highlightthickness=3)
@@ -227,19 +252,19 @@ def main():
         aux1 = puntos_corte(e1, e2)
         resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "35", height = "1"
         , font = ("Helvetica 14"), bg='white')
-        resultPc.grid(row=6,column=0)
+        resultPc.place(x=10, y=170)
 
     botpun = tk.Button(pes1, text="Calcular puntos de corte", width = "20", height = "1", command = pun_cor
     , font = ("Helvetica 14") ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    botpun.grid(row=5, column=0, pady= 8)
+    botpun.place(x=50, y=130)
     liminfe = tk.Label(pes1, text="Ingrese limite inferior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-    liminfe.grid(row=7, column=0)
+    liminfe.place(x=10,y=210)
     caj3 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
-    caj3.grid(row=7, column=1, pady= 9)
+    caj3.place(x=400,y=210)
     limsupe = tk.Label(pes1, text="Ingrese limite superior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-    limsupe.grid(row=10, column=0)
+    limsupe.place(x=10,y=260)
     caj4 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
-    caj4.grid(row=10, column=1, pady= 11)
+    caj4.place(x=400,y=260)
     #accion boton
     def are():
         e1 = caj1.get()
@@ -255,15 +280,16 @@ def main():
         e2 = aux2[1]
         aux3 = aux2[2]
         funmay = tk.Label(pes1, text="La funcion mayor es: " + str(e1), width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmay.grid(row=16,column=0)
-        funmen = tk.Label(pes1, text="La funcion menor es: " + str(e2), width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmen.grid(row=18,column=0)      
+        funmay.place(x=10,y=380)
+        funmen = tk.Label(pes1, text="La funcion menor es: " + str(e2), width = "35", height = "1", font = ("Helvetica 14"), bg='white')   
+        funmen.place(x=10, y=420) 
         resulta = tk.Label(pes1, text="El area de la funcion es: " + str(aux3) + " U²", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resulta.grid(row=20,column=0)
+        resulta.place(x=10, y=460)
 
     botresult = tk.Button(pes1, text="Calcular", width = "20", height = "1",command = are, font = ("Helvetica 14")
     ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     botresult.grid(row=14,column=0, pady=12)  
+    botresult.place(x=50, y=310)
     #accion boton
     def gra():
         e1 = caj1.get()
@@ -278,7 +304,7 @@ def main():
 
     botgraf = tk.Button(pes1, text="Graficar", width = "20", height = "1",command = gra, font = ("Helvetica 14")
     ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    botgraf.grid(row=24,column=0, pady=16)  
+    botgraf.place(x=50, y=520)
     #accion boton
     def eliminar():
         caj1.delete(0, END)
@@ -287,17 +313,17 @@ def main():
         caj4.delete(0 , END)
         caj1.focus_set()
         resultPc = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resultPc.grid(row=6,column=0)
+        resultPc.place(x=20, y=170)
         funmay = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmay.grid(row=16,column=0)
-        funmen = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmen.grid(row=18,column=0)      
+        funmay.place(x=10,y=380)
+        funmen = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white') 
+        funmen.place(x=10, y=420)    
         resulta = tk.Label(pes1, text=" " , width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resulta.grid(row=20,column=0)
+        resulta.place(x=10, y=460)
 
     botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")
     ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    botelim.grid(row=24,column=1, pady=20)  
+    botelim.place(x=400, y=520)
 #----------------------FIN PARTE DE AREAS----------------------------------
     pes2 = tkinter.Frame(notebook,background="white")
 #-------------------------------------INICIO PARTE DE VOLUMEN-----------------------------------------------------------------------#
@@ -390,29 +416,11 @@ def main():
     buttonHabilitar=Button(pes2, text="Añadir función", command=Habilitar, width = "20", height = "1", font = ("Helvetica 16"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     buttonHabilitar.place(x=45, y=80,width=180, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 #-----------------------------INICIO PARTE HELP-------------------------------#
     pes3 = tkinter.Frame(notebook,background="white")
     notebook.add(pes3, text='Help')
     imagenLista = PhotoImage(file="data\entrada.png")
-<<<<<<< Updated upstream
-    imagenLista = imagenLista.subsample(1,1)
-    labelImagen = Label(pes3, image = imagenLista)
-    labelImagen.place(x=0, y=50, width=600, height=800)    
-    lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 36"), bg='white')
-    lblManual.place(x=700, y=300)
-    lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 36"), bg='white')
-    lblGuia.place(x=700, y=400)
-    btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    btnAquiManual.place(x=1200, y=315)
-    btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    btnAquiGuia.place(x=1200, y= 400)
-    btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 20"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
-    btnAbout.place(x=1000, y=550)
-=======
+
     imagenLista = imagenLista.subsample(2,2)
     labelImagen = Label(pes3, image = imagenLista)
     labelImagen.place(x=70, y=50, width=280, height=445)    
@@ -426,9 +434,6 @@ def main():
     btnAquiGuia.place(x=800, y= 200)
     btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 16"),foreground="white", bg='#f39200', activebackground='white', activeforeground='#007b99')
     btnAbout.place(x=800, y=300)
->>>>>>> Stashed changes
-
-
 #---------------------FIN PARTE HELP------------------------------#
     w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
     ventana.geometry("%dx%d+0+0" % (w, h))
