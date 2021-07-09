@@ -8,6 +8,7 @@ from tkinter import messagebox
 import tkinter
 import tkinter.font as tkFont
 import tkinter as tk
+from tkinter.tix import *
 
 def main():
     ventana= Tk()
@@ -250,9 +251,9 @@ def main():
         if not e2:
             e2 = 0
         aux1 = puntos_corte(e1, e2)
-        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "35", height = "1"
+        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "45", height = "1"
         , font = ("Helvetica 14"), bg='white')
-        resultPc.place(x=10, y=170)
+        resultPc.place(x=20, y=170)
 
     botpun = tk.Button(pes1, text="Calcular puntos de corte", width = "20", height = "1", command = pun_cor
     , font = ("Helvetica 14") ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
@@ -265,6 +266,8 @@ def main():
     limsupe.place(x=10,y=260)
     caj4 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
     caj4.place(x=400,y=260)
+    pru = Balloon(pes1)
+    pru.bind_widget(botpun, balloonmsg = "Ingrese limites en valores enteros o decimales")
     #accion boton
     def are():
         e1 = caj1.get()
@@ -275,16 +278,21 @@ def main():
             e2 = 0
         l1 = caj3.get()
         l2 = caj4.get()
-        aux2 = area(e1, e2, l1, l2)
-        e1 = aux2[0]
-        e2 = aux2[1]
-        aux3 = aux2[2]
-        funmay = tk.Label(pes1, text="La funcion mayor es: " + str(e1), width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmay.place(x=10,y=380)
-        funmen = tk.Label(pes1, text="La funcion menor es: " + str(e2), width = "35", height = "1", font = ("Helvetica 14"), bg='white')   
-        funmen.place(x=10, y=420) 
-        resulta = tk.Label(pes1, text="El area de la funcion es: " + str(aux3) + " U²", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resulta.place(x=10, y=460)
+        try:
+            l3=float(l1)
+            l4=float(l2)
+            aux2 = area(e1, e2, l1, l2)
+            e1 = aux2[0]
+            e2 = aux2[1]
+            aux3 = aux2[2]
+            funmay = tk.Label(pes1, text="La funcion mayor es: " + str(e1), width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+            funmay.place(x=20,y=380)
+            funmen = tk.Label(pes1, text="La funcion menor es: " + str(e2), width = "45", height = "1", font = ("Helvetica 14"), bg='white')   
+            funmen.place(x=20, y=420) 
+            resulta = tk.Label(pes1, text="El area de la funcion es: " + str(aux3) + " U²", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+            resulta.place(x=20, y=460)
+        except ValueError:
+             messagebox.showerror("Error", "Ingrese los limites en valores enteros o decimales")
 
     botresult = tk.Button(pes1, text="Calcular", width = "20", height = "1",command = are, font = ("Helvetica 14")
                             ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
@@ -312,14 +320,14 @@ def main():
         caj3.delete(0 , END)
         caj4.delete(0 , END)
         caj1.focus_set()
-        resultPc = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        resultPc = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
         resultPc.place(x=20, y=170)
-        funmay = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmay.place(x=10,y=380)
-        funmen = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white') 
-        funmen.place(x=10, y=420)    
-        resulta = tk.Label(pes1, text=" " , width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resulta.place(x=10, y=460)
+        funmay = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+        funmay.place(x=20,y=380)
+        funmen = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white') 
+        funmen.place(x=20, y=420)    
+        resulta = tk.Label(pes1, text=" " , width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+        resulta.place(x=20, y=460)
 
     botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")
                         ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
@@ -340,11 +348,11 @@ def main():
         boxFuncion1.focus_set()
         boxFuncion2.config(state=DISABLED)
         FuncionMayor =  Label(pes2, text="", width="500", height="35", bg='white')
-        FuncionMayor.place(x=80, y=450, width=500, height=35)
+        FuncionMayor.place(x=200, y=500, width=500, height=35)
         FuncionMenor = Label(pes2, text="", width="500", height="35", bg='white')
-        FuncionMenor.place(x=80, y=500, width=500, height=35)
+        FuncionMenor.place(x=200, y=550, width=500, height=35)
         ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
-        ResultadoVolumen.place(x=500, y=475, width="500", height="35")
+        ResultadoVolumen.place(x=200, y=600, width="500", height="35")
 #FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
     def Grafica():
         Expresion1 = boxFuncion1.get()
