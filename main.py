@@ -80,7 +80,7 @@ def main():
         #Menu Despegable
     menuI = ttk.Combobox(pes0, width = "35", font = ("Helvetica 18"), state = "readonly", foreground = "#007b99",
                          values = ["Si.", 
-                                   "Si, mostrando la grafica de la integral."])
+                                   "Si, mostrando la grafica de la funcion."])
     menuI.current()#Valor por defectos
         #Botones de verificacion
     def obtenerI():
@@ -99,15 +99,15 @@ def main():
         
     def save():
         prueba = caja1.get()
-        solucion = ecuacionI(prueba)
+        solucion= ecuacionI(prueba)
         muestraI.config(text = solucion)
         
-    botonGraf = Button(pes0, text = "Grafica", width = "20", font = ("Helvetica 14 bold"),
-                    command = obtenerI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton3 = Button(pes0, text = "Borrar", width = "20", height = "1", font = ("Helvetica 14 bold"), 
                     command = limpiarI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton4 = Button(pes0, text = "Calcular", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = save, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
+    botonGraf = Button(pes0, text = "Grafica", width = "20", font = ("Helvetica 14 bold"),
+                    command = obtenerI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     #-----------Parte Definidas-----------------
         #Limites
     limInfe = tk.Label(pes0, text="Ingrese limite inferior:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
@@ -154,9 +154,8 @@ def main():
     boton6 = Button(pes0, text = "Calcular", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = obtenerD, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton7 = Button(pes0, text = "Grafica", width = "20", height = "1", font = ("Helvetica 14 bold"),
-                    command = lambda: graficaES(caja2.get()), foreground = "white", bg = '#007b99', activebackground = 'white', 
-                    activeforeground = '#007b99')
-
+                    command = lambda: graficaES(caja2.get(), cajaInfe.get(), cajaSupe.get()), foreground = "white", bg = '#007b99',
+                     activebackground = 'white', activeforeground = '#007b99')
     #ShowWidgets
     def indefi():
         caja1.focus_set()
