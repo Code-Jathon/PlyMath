@@ -64,7 +64,7 @@ def graficar(f1, f2, lim1, lim2):
         '''  
         #area sombreada
         plt.figure('Plymath/Area')
-        plt.title("Area bajo la curva", color = "#f39200", size = 14)
+        plt.title("Área bajo la curva", color = "#f39200", size = 14)
         plt.ylabel('$Eje Y$')
         plt.xlabel('$Eje X$')
         plt.plot(x, y1, label= "Función 1", linewidth = 2, color = 'orange')
