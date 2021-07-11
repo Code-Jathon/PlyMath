@@ -36,7 +36,7 @@ def graficaES(fx, inf, sup):
         x = np.array(x, dtype = float)
 
         plt.figure('Plymath/Integrales')
-        plt.title("GRAFICA DE INTEGRALE DEFINIDA", color = "#f39200", size = 14)
+        plt.title("Grafica integral definida", color = "#f39200", size = 14)
         plt.ylabel('$Eje Y$')
         plt.xlabel('$Eje X$')
         plt.plot(x, gx, label= "f(x)", linewidth = 2, color = 'orange')
