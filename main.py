@@ -1,4 +1,5 @@
 from tkinter import *
+from matplotlib.pyplot import text
 from Volumen import *
 from integralesIndefinidas import *
 from integralesDefinidas import *
@@ -8,6 +9,7 @@ from tkinter import messagebox
 import tkinter
 import tkinter.font as tkFont
 import tkinter as tk
+from PIL import Image, ImageTk
 
 def main():
     ventana= Tk()
@@ -328,7 +330,7 @@ def main():
     pes2 = tkinter.Frame(notebook,background="white")
 #-------------------------------------INICIO PARTE DE VOLUMEN-----------------------------------------------------------------------#
     notebook.add(pes2, text='Volumen')
-#HABILITAR TEXTBOX PARA SEGUNDA FUNCION    
+    #HABILITAR TEXTBOX PARA SEGUNDA FUNCION    
     def Habilitar():
         boxFuncion2.config(state=NORMAL)
 
@@ -345,7 +347,7 @@ def main():
         FuncionMenor.place(x=80, y=500, width=500, height=35)
         ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
         ResultadoVolumen.place(x=500, y=475, width="500", height="35")
-#FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
+    #FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
     def Grafica():
         Expresion1 = boxFuncion1.get()
         if not Expresion1:
@@ -356,7 +358,7 @@ def main():
         Limite1 = boxLimi1.get()
         Limite2 = boxLimi2.get()
         Graficar(Expresion1, Expresion2, Limite1, Limite2)
-#FUNCION PARA HACER EL PROCESO DEL CALCULO DEL VOLUMEN 
+    #FUNCION PARA HACER EL PROCESO DEL CALCULO DEL VOLUMEN 
     def vol():
         Expresion1=boxFuncion1.get()
         if not Expresion1:
@@ -378,7 +380,7 @@ def main():
         FuncionMenor.place(x=80, y=500, width=500, height=35)
         ResultadoVolumen = Label(pes2, text="El volúmen es: (" + str(auxilio3) +") π U³",width = "500", height = "35", font = ("Helvetica 16"), bg='white')
         ResultadoVolumen.place(x=500, y=475, width=500, height=35)
- #ETIQUETAS DE TEXTO
+    #ETIQUETAS DE TEXTO
     lblFuncion1=Label(pes2, text="Ingrese la función en términos de x:", width = "35", height = "1", font = ("Helvetica 14"), bg='white') #PRIMERA FUNCIÓN
     lblFuncion1.place(x=200, y=35, width=300, height=25)#POSICIONAMIENTO 
 
@@ -391,7 +393,7 @@ def main():
     lbllimite2=Label(pes2,text="Ingrese limite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#SEGUNDO LIMITE (SUPERIOR)
     lbllimite2.place(x=230, y=290, width=225, height=30)#POSICIONAMIENTO
 
-#CAJAS DE ENTRADA DE FUNCIONES
+    #CAJAS DE ENTRADA DE FUNCIONES
     boxFuncion1=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3 ) #CAJA PARA PRIMERA FUNCION
     boxFuncion1.place(x=540,y=35, width=300, height=30)#POSICIONAMIENTO
 
@@ -403,7 +405,7 @@ def main():
 
     boxLimi2=Entry(pes2, width=20, font=("Helvetica 16"),highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)#CAJA PARA LIMITE SUPERIOR
     boxLimi2.place(x=540, y=290, width=145, height=25)#POSICIONAMIENTO
-#BOTONERA
+    #BOTONERA
     buttonCalcular=Button(pes2,text="Calcular", command= vol, width = "20", height = "1", font = ("Helvetica 16"),foreground="white",
                            bg='#007b99', activebackground='white', activeforeground='#007b99')#BOTÓN PARA CALCULAR EL VOLUMEN
     buttonCalcular.place(x=300, y=370, width=110, height=45)#POSICIONAMIENTO
@@ -420,11 +422,18 @@ def main():
                            bg='#007b99', activebackground='white', activeforeground='#007b99')
     buttonHabilitar.place(x=540, y=80,width=300, height=45)
 #----------------------------------------------FIN PARTE VOLUMEN----------------------------------------------------------------------------#
-#-----------------------------INICIO PARTE HELP-------------------------------#
     pes3 = tkinter.Frame(notebook,background="white")
+#-----------------------------INICIO PARTE HELP-------------------------------#
     notebook.add(pes3, text='Help')
     imagenLista = PhotoImage(file="data\entrada.png")
     logo_help = PhotoImage(file="data\logo.png")
+    imagenLista = imagenLista.subsample(2,2)
+    labelImagen = Label(pes3, image = imagenLista)
+    labelImagen.place(x=70, y=50, width=280, height=445) 
+    logo_help = logo_help.subsample(2,2)
+    label_logo = Label(pes3, image=logo_help)
+    label_logo.place(x=650, y=50, width=230, height=195) 
+
     dialogo = """Version: 1.0
 Fecha: 6 de Agosto del 2021 
 Python: 3.9.5
@@ -432,13 +441,85 @@ OS: Windows 10 x 64 bits"""
 
     def about(dialogue):
         messagebox.showinfo("PlyMath", dialogue)
+        ventana_about = Toplevel()
+        ventana_about.config(bg = "white")
+        ventana_about.title("About Us")
+        ventana_about.geometry("1300x600")
+        ventana.resizable(1,1)
 
-    imagenLista = imagenLista.subsample(2,2)
-    labelImagen = Label(pes3, image = imagenLista)
-    labelImagen.place(x=70, y=50, width=280, height=445) 
-    logo_help = logo_help.subsample(2,2)
-    label_logo = Label(pes3, image=logo_help)
-    label_logo.place(x=650, y=50, width=230, height=195) 
+        titu = Label(ventana_about, text = "About Us", width = "15", height = "1", font = ("Helvetica 14 bold"),
+                     bg = "white", fg = "orange").place(x = 600, y = 20)
+        contexto = """Las Ciencias Básicas, como departamento vital para las ingenierias en los entes educativos, necesitan implementar herramientas 
+acordes para que los jovenes estudiantes y profesores sigan ayudando al crecimiento y desarrollo de la enseñanza y aprendizaje. 
+PlyMath es una herramienta para apoyar estos procesos."""
+        r1 = Label(ventana_about, text = contexto, width = "100", height = "3", font = ("Helvetica 12 bold"),
+                     bg = "white", fg = "#007b99", justify = tk.LEFT).place(x = 200, y = 50)
+
+        frase = Label(ventana_about, text = "Conoce nuestro equipo", width = 20, height = 1, font = ("Helvetica 14 bold"),
+                     bg = "white", fg = "orange").place(x = 10, y = 115)
+        equipo = ["Camilo Garcia Saldarriaga", 
+                  "Juan Jose Mazo Acevedo", 
+                  "Bryan Arias Quinchia", 
+                  "Sneyder Martinez Caicedo",
+                  "Ingrid Durley Torres Pardo"]
+
+        e1 = Label(ventana_about, text = equipo[0], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 160)
+        e1photo = PhotoImage(file = "data\Camilo.png", master = ventana_about).subsample(1,1)
+        e1_muestra = Label(ventana_about, image = e1photo)
+        e1_muestra.image = e1photo
+        e1_muestra.place(x = 30, y = 190)
+        c = """Desarrollador
+camilo.garciasa@amigo.edu.co"""
+        e1_descripcion = Label(ventana_about, text = c, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e1_descripcion.place(x = 130, y = 190)
+
+        e2 = Label(ventana_about, text = equipo[2], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 340)
+        e2photo = PhotoImage(file = "data\Brayan.png", master = ventana_about).subsample(1,1)
+        e2_muestra = Label(ventana_about, image = e2photo)
+        e2_muestra.image = e2photo
+        e2_muestra.place(x = 30, y = 370)
+        b = """Desarrollador
+bryan.ariasqu@amigo.edu.co"""
+        e2_descripcion = Label(ventana_about, text = b, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e2_descripcion.place(x = 135, y = 370)
+
+        e3 = Label(ventana_about, text = equipo[1], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 160)
+        e3photo = PhotoImage(file = "data\Juan.png", master = ventana_about).subsample(1,1)
+        e3_muestra = Label(ventana_about, image = e3photo)
+        e3_muestra.image = e3photo
+        e3_muestra.place(x = 485, y = 190)
+        j = """Desarrollador
+juan.mazoac@amigo.edu.co"""
+        e3_descripcion = Label(ventana_about, text = j, width = 25, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e3_descripcion.place(x = 600, y = 190)
+
+        e4 = Label(ventana_about, text = equipo[3], width = 30, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 340)
+        e4photo = PhotoImage(file = "data\Sneyder.png", master = ventana_about).subsample(1,1)
+        e4_muestra = Label(ventana_about, image = e4photo)
+        e4_muestra.image = e4photo
+        e4_muestra.place(x = 485, y = 370)
+        s = """Desarrollador
+sneyder.martinezca@amigo.edu.co"""
+        e4_descripcion = Label(ventana_about, text = s, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e4_descripcion.place(x = 590, y = 370)
+
+        e5 = Label(ventana_about, text = equipo[4], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 930, y = 160)
+        e5photo = PhotoImage(file = "data\ingrid.png", master = ventana_about).subsample(1,1)
+        e5_muestra = Label(ventana_about, image = e5photo)
+        e5_muestra.image = e5photo
+        e5_muestra.place(x = 940, y = 190)
+        i = """Docente Investigadora &
+Directora del proyecto.
+ingrid.torrespa@amigo.edu.co"""
+        e5_descripcion = Label(ventana_about, text = i, width = 25, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e5_descripcion.place(x = 1040, y = 190)
+
+        d = """Agredecimientos por participacion 
+en el desarollo del proyecto a: 
+David Estrada Jimenez"""
+        plus = Label(ventana_about, text = d, width = 30, height = 4, font = ("Helvetica 14 bold"),
+                     bg = "white", justify = tk.LEFT, fg = "#007b99").place(x = 910, y = 450)
+        
     lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
     lblManual.place(x=400, y=300)
     lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
@@ -456,7 +537,6 @@ OS: Windows 10 x 64 bits"""
 #---------------------FIN PARTE HELP------------------------------#
     w, h = ventana.winfo_screenwidth(), ventana.winfo_screenheight()
     ventana.geometry("%dx%d+0+0" % (w, h))
-    #ventana.resizable(0,0)
     ventana.mainloop()
 
 if __name__=='__main__':
