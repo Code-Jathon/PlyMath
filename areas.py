@@ -4,6 +4,7 @@ import sympy
 from numpy import *
 import numpy as np
 import matplotlib.pyplot as plt
+from    matplotlib.pyplot import legend
 from sympy.core import expr
 from sympy.simplify.fu import L
 sympy.init_printing()
@@ -56,13 +57,20 @@ def graficar(f1, f2, lim1, lim2):
         y2=np.array(y2, dtype=float)
         x=np.array(x, dtype=float)
     
+        '''
         plt.figure('Plymath/Area')
         plt.plot(x,y1)
         plt.plot(x,y2)  
-            
+        '''  
         #area sombreada
+        plt.figure('Plymath/Area')
+        plt.title("Área bajo la curva", color = "#f39200", size = 14)
+        plt.ylabel('$Eje Y$')
+        plt.xlabel('$Eje X$')
+        plt.plot(x, y1, label= "Función 1", linewidth = 2, color = 'orange')
+        plt.plot(x, y2, label= "Función 2", linewidth = 2, color = '#007b99')
         plt.fill_between(x, y1,y2, where = [(x > lim1) and (x < lim2) for x in x], color = 'red', alpha = 0.5)      
-
+        legend()
         plt.grid(True)
                         
         plt.show()
