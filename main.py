@@ -327,6 +327,7 @@ def main():
         funmen.place(x=20, y=420)    
         resulta = tk.Label(pes1, text=" " , width = "45", height = "1", font = ("Helvetica 14"), bg='white')
         resulta.place(x=20, y=460)
+        messagebox.showinfo("Información", "Los campos fueron limpiados")
 
     botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")
                         ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
@@ -352,6 +353,7 @@ def main():
         FuncionMenor.place(x=80, y=500, width=500, height=35)
         ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
         ResultadoVolumen.place(x=500, y=475, width="500", height="35")
+        messagebox.showinfo("Información", "Los campos fueron limpiados")
 #FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
     def Grafica():
         Expresion1 = boxFuncion1.get()
