@@ -448,12 +448,12 @@ OS: Windows 10 x 64 bits"""
         ventana.resizable(1,1)
 
         titu = Label(ventana_about, text = "About Us", width = "15", height = "1", font = ("Helvetica 14 bold"),
-                     bg = "white", fg = "orange").place(x = 600, y = 20)
-        contexto = """Las Ciencias Básicas, como departamento vital para las ingenierias en los entes educativos, necesitan implementar herramientas 
-acordes para que los jovenes estudiantes y profesores sigan ayudando al crecimiento y desarrollo de la enseñanza y aprendizaje. 
-PlyMath es una herramienta para apoyar estos procesos."""
-        r1 = Label(ventana_about, text = contexto, width = "100", height = "3", font = ("Helvetica 12 bold"),
-                     bg = "white", fg = "#007b99", justify = tk.LEFT).place(x = 200, y = 50)
+                     bg = "white", fg = "orange").place(x = 600, y = 10)
+        contexto = """Plymath es un programa de escritorio creado por estudiantes del semillero SYSLAC que ayuda al fortalecimiento de conocimiento de ciencias basicas. 
+Este programa se centra en temas especificos del calculo integral, como definiciones, y aplicaciones de integrales, además de generar graficas para un 
+mejor entendimiento de los diferentes conceptos. """
+        r1 = Label(ventana_about, text = contexto, width = "115", height = "3", font = ("Helvetica 12 bold"),
+                     bg = "white", fg = "#007b99", justify = tk.LEFT).place(x = 80, y = 40)
 
         frase = Label(ventana_about, text = "Conoce nuestro equipo", width = 20, height = 1, font = ("Helvetica 14 bold"),
                      bg = "white", fg = "orange").place(x = 10, y = 115)
@@ -464,61 +464,61 @@ PlyMath es una herramienta para apoyar estos procesos."""
                   "Ingrid Durley Torres Pardo"]
 
         e1 = Label(ventana_about, text = equipo[0], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 160)
-        e1photo = PhotoImage(file = "data\Camilo.png", master = ventana_about).subsample(1,1)
+        e1photo = PhotoImage(file = "data\Camilo.png", master = ventana_about).subsample(8,7)
         e1_muestra = Label(ventana_about, image = e1photo)
         e1_muestra.image = e1photo
         e1_muestra.place(x = 30, y = 190)
         c = """Desarrollador
 camilo.garciasa@amigo.edu.co"""
         e1_descripcion = Label(ventana_about, text = c, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
-        e1_descripcion.place(x = 130, y = 190)
+        e1_descripcion.place(x = 155, y = 190)
 
-        e2 = Label(ventana_about, text = equipo[2], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 340)
-        e2photo = PhotoImage(file = "data\Brayan.png", master = ventana_about).subsample(1,1)
+        e2 = Label(ventana_about, text = equipo[2], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 370)
+        e2photo = PhotoImage(file = "data\Brayan.png", master = ventana_about).subsample(8,7)
         e2_muestra = Label(ventana_about, image = e2photo)
         e2_muestra.image = e2photo
-        e2_muestra.place(x = 30, y = 370)
+        e2_muestra.place(x = 30, y = 400)
         b = """Desarrollador
 bryan.ariasqu@amigo.edu.co"""
         e2_descripcion = Label(ventana_about, text = b, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
-        e2_descripcion.place(x = 135, y = 370)
+        e2_descripcion.place(x = 150, y = 400)
 
         e3 = Label(ventana_about, text = equipo[1], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 160)
-        e3photo = PhotoImage(file = "data\Juan.png", master = ventana_about).subsample(1,1)
+        e3photo = PhotoImage(file = "data\Juan.png", master = ventana_about).subsample(8,7)
         e3_muestra = Label(ventana_about, image = e3photo)
         e3_muestra.image = e3photo
         e3_muestra.place(x = 485, y = 190)
         j = """Desarrollador
 juan.mazoac@amigo.edu.co"""
         e3_descripcion = Label(ventana_about, text = j, width = 25, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
-        e3_descripcion.place(x = 600, y = 190)
+        e3_descripcion.place(x = 615, y = 190)
 
-        e4 = Label(ventana_about, text = equipo[3], width = 30, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 340)
-        e4photo = PhotoImage(file = "data\Sneyder.png", master = ventana_about).subsample(1,1)
+        e4 = Label(ventana_about, text = equipo[3], width = 30, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 370)
+        e4photo = PhotoImage(file = "data\Sneyder.png", master = ventana_about).subsample(7,6)
         e4_muestra = Label(ventana_about, image = e4photo)
         e4_muestra.image = e4photo
-        e4_muestra.place(x = 485, y = 370)
+        e4_muestra.place(x = 485, y = 400)
         s = """Desarrollador
 sneyder.martinezca@amigo.edu.co"""
         e4_descripcion = Label(ventana_about, text = s, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
-        e4_descripcion.place(x = 590, y = 370)
+        e4_descripcion.place(x = 615, y = 400)
 
-        e5 = Label(ventana_about, text = equipo[4], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 930, y = 160)
-        e5photo = PhotoImage(file = "data\ingrid.png", master = ventana_about).subsample(1,1)
+        e5 = Label(ventana_about, text = equipo[4], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 920, y = 160)
+        e5photo = PhotoImage(file = "data\ingrid.png", master = ventana_about).subsample(8,7)
         e5_muestra = Label(ventana_about, image = e5photo)
         e5_muestra.image = e5photo
-        e5_muestra.place(x = 940, y = 190)
+        e5_muestra.place(x = 930, y = 190)
         i = """Docente Investigadora &
 Directora del proyecto.
 ingrid.torrespa@amigo.edu.co"""
         e5_descripcion = Label(ventana_about, text = i, width = 25, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
-        e5_descripcion.place(x = 1040, y = 190)
+        e5_descripcion.place(x = 1055, y = 190)
 
         d = """Agredecimientos por participacion 
 en el desarollo del proyecto a: 
 David Estrada Jimenez"""
         plus = Label(ventana_about, text = d, width = 30, height = 4, font = ("Helvetica 14 bold"),
-                     bg = "white", justify = tk.LEFT, fg = "#007b99").place(x = 910, y = 450)
+                     bg = "white", justify = tk.LEFT, fg = "#007b99").place(x = 925, y = 450)
         
     lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
     lblManual.place(x=400, y=300)
