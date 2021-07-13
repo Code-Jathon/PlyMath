@@ -36,7 +36,7 @@ def graficaIS(fx, sol, resp): #Menu Despegable
         s[0].line_color = 'orange'
         s.show()
     
-    elif(resp == "Si, mostrando la gráfica de la función."):
+    elif(resp == "Sí, mostrando la gráfica de la función."):
         s = plot(fx, sol, legend = True, show = False)
         s.title = ("GRÁFICA DE INTEGRAL INDEFINIDA & SU FUNCIÓN")
         s[0].line_color = '#007b99'
