@@ -10,9 +10,9 @@ from    tkinter import messagebox
 def ecuacionD(i, s, fx, resp):
 
     if(i == ""):
-        messagebox.showerror("Error", "Ingrese el limite inferior por favor.")
+        messagebox.showerror("Error", "Ingrese el límite inferior por favor.")
     elif(s == ""):
-        messagebox.showerror("Error", "Ingrese el limite superior por favor.")
+        messagebox.showerror("Error", "Ingrese el límite superior por favor.")
     elif(fx == ""):
         messagebox.showerror("Error", "Ingrese una integral por favor.")
        
@@ -24,14 +24,14 @@ def ecuacionD(i, s, fx, resp):
     elif(resp == "Decimales."):
         inte = integrate(fx, (dx, i, s)).evalf(3) #Decimal
     else:
-        messagebox.showerror("Error", "Seleccione una opcion por favor.")
+        messagebox.showerror("Error", "Seleccione una opción por favor.")
 
     return inte
 
 def graficaES(fx, inf, sup):
-
+    if(fx == ""):
+        messagebox.showerror("Error", "Ingrese una integral por favor.") 
     def gES(x, gx, lI, lS):
-        
         gx = np.array(gx, dtype = float)
         x = np.array(x, dtype = float)
 
