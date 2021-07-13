@@ -362,8 +362,10 @@ def main():
             Expresion2 = 0
         Limite1 = boxLimi1.get()
         if not Limite1:
-            messagebox.showerror("Error", "Ingrese los límites")
+            messagebox.showerror("Error", "Ingrese el límite inferior")
         Limite2 = boxLimi2.get()
+        if not Limite2:
+            messagebox.showerror("Error", "Ingrese el límite superior")
         Graficar(Expresion1, Expresion2, Limite1, Limite2)
 #FUNCION PARA HACER EL PROCESO DEL CALCULO DEL VOLUMEN 
     def vol():

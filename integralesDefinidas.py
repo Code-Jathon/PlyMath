@@ -31,6 +31,11 @@ def ecuacionD(i, s, fx, resp):
 def graficaES(fx, inf, sup):
     if(fx == ""):
         messagebox.showerror("Error", "Ingrese una integral por favor.") 
+    if (inf==""):
+        messagebox.showerror("Error", "Ingrese el límite inferior")
+
+    if (sup==""):
+        messagebox.showerror("Error", "Ingrese el límite superior")
     def gES(x, gx, lI, lS):
         gx = np.array(gx, dtype = float)
         x = np.array(x, dtype = float)
