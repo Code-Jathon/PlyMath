@@ -94,7 +94,7 @@ def main():
         caja1.delete(0, END)
         muestraI.config(text = "")
         menuI.set("")
-        messagebox.showinfo("Información", "La ecuación y ha sido borrada")
+        messagebox.showinfo("Información", "La ecuación ha sido borrada")
         caja1.focus_set()
         
     def save():
@@ -119,12 +119,12 @@ def main():
     caja2 = Entry(pes0, width = 40, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
         #Pregunta
     question = '''      ¿Desea conocer el resultado
-    en fraccionario o en decimales ?'''
+    en fraccionarios o en decimales ?'''
     pregu = tk.Label(pes0, text = question, width = "35", height = "2", font = ("Helvetica 14"), justify = tk.LEFT, bg = 'white')
         #Menu Despegable
     menuD =  ttk.Combobox(pes0, width = "35", font = ("Helvetica 14"), state = "readonly", foreground = "#007b99")
-    menuD['values'] = (  "Fraccionario.",
-                         "Decimales.")
+    menuD['values'] = ( "Fraccionarios.",
+                        "Decimales.")
     menuD.current()
         #Solucion
     resulD = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg="white")

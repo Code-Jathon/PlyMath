@@ -14,12 +14,12 @@ def ecuacionD(i, s, fx, resp):
     elif(s == ""):
         messagebox.showerror("Error", "Ingrese el límite superior por favor.")
     elif(fx == ""):
-        messagebox.showerror("Error", "Ingrese una integral por favor.")
+        messagebox.showerror("Error", "Ingrese una ecuación por favor.")
        
     dx = symbols('x') #Diferencial
     fx = sympify(fx)
 
-    if(resp == "Fraccionario."):
+    if(resp == "Fraccionarios."):
         inte = integrate(fx, (dx, i, s)) #Fraccionario
     elif(resp == "Decimales."):
         inte = integrate(fx, (dx, i, s)).evalf(3) #Decimal
@@ -29,19 +29,19 @@ def ecuacionD(i, s, fx, resp):
     return inte
 
 def graficaES(fx, inf, sup):
-    if(fx == ""):
-        messagebox.showerror("Error", "Ingrese una integral por favor.") 
     if (inf==""):
         messagebox.showerror("Error", "Ingrese el límite inferior")
-
     if (sup==""):
         messagebox.showerror("Error", "Ingrese el límite superior")
+    if(fx == ""):
+        messagebox.showerror("Error", "Ingrese una ecuación por favor.")
+        
     def gES(x, gx, lI, lS):
         gx = np.array(gx, dtype = float)
         x = np.array(x, dtype = float)
 
         plt.figure('Plymath/Integrales')
-        plt.title("Grafica integral definida", color = "#f39200", size = 14)
+        plt.title("Gráfica integral definida", color = "#f39200", size = 14)
         plt.ylabel('$Eje Y$')
         plt.xlabel('$Eje X$')
         plt.plot(x, gx, label= "f(x)", linewidth = 2, color = 'orange')
