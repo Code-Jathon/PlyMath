@@ -4,40 +4,70 @@ from    sympy   import *
 import  matplotlib.pyplot as plt
 from    matplotlib.pyplot import legend
 import  numpy as np
+from    numpy import *
 from    tkinter import messagebox
 
 def ecuacionD(i, s, fx, resp):
 
     if(i == ""):
-        messagebox.showerror("Error", "Ingrese el limite inferior por favor.")
+        messagebox.showerror("Error", "Ingrese el límite inferior por favor.")
     elif(s == ""):
-        messagebox.showerror("Error", "Ingrese el limite superior por favor.")
+        messagebox.showerror("Error", "Ingrese el límite superior por favor.")
     elif(fx == ""):
-        messagebox.showerror("Error", "Ingrese una integral por favor.")
+        messagebox.showerror("Error", "Ingrese una ecuación por favor.")
        
     dx = symbols('x') #Diferencial
     fx = sympify(fx)
-    
-    print("limite inferior: " + i)
-    print("limite superior: " + s)
-    pprint(fx)
 
-    if(resp == "Fraccionario."):
+    if(resp == "Fraccionarios."):
         inte = integrate(fx, (dx, i, s)) #Fraccionario
-        print("El resultado de la integral es: ")
-        pprint(inte)
     elif(resp == "Decimales."):
         inte = integrate(fx, (dx, i, s)).evalf(3) #Decimal
-        print("El resultado de la integral es: ")
-        pprint(inte)
     else:
-        messagebox.showerror("Error", "Seleccione una opcion por favor.")
+        messagebox.showerror("Error", "Seleccione una opción por favor.")
 
     return inte
 
-def graficaES(fx):
+def graficaES(fx, inf, sup):
+    if (inf==""):
+        messagebox.showerror("Error", "Ingrese el límite inferior")
+    if (sup==""):
+        messagebox.showerror("Error", "Ingrese el límite superior")
+    if(fx == ""):
+        messagebox.showerror("Error", "Ingrese una ecuación por favor.")
+        
+    def gES(x, gx, lI, lS):
+        gx = np.array(gx, dtype = float)
+        x = np.array(x, dtype = float)
 
-    fx = sympify(fx)
-    s = plot(fx, legend = True, show = False)#Grafica
-    s[0].line_color = 'orange'
-    s.show()
+        plt.figure('Plymath/Integrales')
+        plt.title("Gráfica integral definida", color = "#f39200", size = 14)
+        plt.ylabel('$Eje Y$')
+        plt.xlabel('$Eje X$')
+        plt.plot(x, gx, label= "f(x)", linewidth = 2, color = 'orange')
+        legend()
+
+        #Area sombreada
+        plt.fill_between(x, gx, where = [(x >= lI) and (x <= lS) for x in x], color = "#007b99", alpha = 0.7)
+        plt.grid(True)
+        plt.axhline(0, color="#007b99", linestyle='solid', lw = 2)
+        plt.show()
+
+    inf = float(inf)
+    sup = float(sup)
+
+    x = np.linspace(inf-3, sup+3, 256, endpoint = True)
+    xi = []
+    
+    for i in x:
+        xi.append(i)
+    
+    ffx = []
+
+    for i in xi:
+        x = symbols('x')
+        fx = sympify(fx)
+        ec = fx.evalf(subs = {x: i})
+        ffx.append(ec)
+
+    gES(xi, ffx, inf, sup)

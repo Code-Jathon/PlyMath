@@ -10,6 +10,7 @@ import tkinter
 import tkinter.font as tkFont
 import tkinter as tk
 from PIL import Image, ImageTk
+from tkinter.tix import *
 
 def main():
     ventana= Tk()
@@ -69,7 +70,7 @@ def main():
     pes0 = tkinter.Frame(notebook,background="white")
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
-        #Ecuacion
+        #Ecuacion 
     notebook.add(pes0, text='Integrales') 
     ecuaI = tk.Label(pes0, text ="Digite el problema:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
     caja1 = Entry(pes0, width = 40, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
@@ -77,11 +78,11 @@ def main():
     resulI = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg = 'white')
     muestraI = tk.Label(pes0, text = "" , width = "35", height = "1", font = ("Helvetica 14 bold"), background = "white")
         #Grafica    
-    graficaI = tk.Label(pes0, text ="¿Desea conocer la grafica de la integral?", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
+    graficaI = tk.Label(pes0, text ="¿Desea conocer la gráfica de la integral?", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
         #Menu Despegable
     menuI = ttk.Combobox(pes0, width = "35", font = ("Helvetica 18"), state = "readonly", foreground = "#007b99",
-                         values = ["Si.", 
-                                   "Si, mostrando la grafica de la integral."])
+                         values = ["Sí.", 
+                                   "Sí, mostrando la gráfica de la función."])
     menuI.current()#Valor por defectos
         #Botones de verificacion
     def obtenerI():
@@ -95,37 +96,37 @@ def main():
         caja1.delete(0, END)
         muestraI.config(text = "")
         menuI.set("")
-        messagebox.showinfo("Informacion", "La ecuacion y ha sido borrada")
+        messagebox.showinfo("Información", "La ecuación ha sido borrada")
         caja1.focus_set()
         
     def save():
         prueba = caja1.get()
-        solucion = ecuacionI(prueba)
+        solucion= ecuacionI(prueba)
         muestraI.config(text = solucion)
         
-    botonGraf = Button(pes0, text = "Grafica", width = "20", font = ("Helvetica 14 bold"),
-                    command = obtenerI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton3 = Button(pes0, text = "Borrar", width = "20", height = "1", font = ("Helvetica 14 bold"), 
                     command = limpiarI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton4 = Button(pes0, text = "Calcular", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = save, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
+    botonGraf = Button(pes0, text = "Gráfica", width = "20", font = ("Helvetica 14 bold"),
+                    command = obtenerI, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     #-----------Parte Definidas-----------------
         #Limites
-    limInfe = tk.Label(pes0, text="Ingrese limite inferior:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
+    limInfe = tk.Label(pes0, text="Ingrese límite inferior:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
     cajaInfe = Entry(pes0, width = 20, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
-    limSupe = tk.Label(pes0, text="Ingrese limite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
+    limSupe = tk.Label(pes0, text="Ingrese límite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
     cajaSupe = Entry(pes0, width = 20, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
         #Ecuacion
-    ecuaD = tk.Label(pes0, text ="Digite la ecuacion:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
+    ecuaD = tk.Label(pes0, text ="Digite la ecuación:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
     caja2 = Entry(pes0, width = 40, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
         #Pregunta
     question = '''      ¿Desea conocer el resultado
-    en fraccionario o en decimales ?'''
+    en fraccionarios o en decimales ?'''
     pregu = tk.Label(pes0, text = question, width = "35", height = "2", font = ("Helvetica 14"), justify = tk.LEFT, bg = 'white')
         #Menu Despegable
     menuD =  ttk.Combobox(pes0, width = "35", font = ("Helvetica 14"), state = "readonly", foreground = "#007b99")
-    menuD['values'] = (  "Fraccionario.",
-                         "Decimales.")
+    menuD['values'] = ( "Fraccionarios.",
+                        "Decimales.")
     menuD.current()
         #Solucion
     resulD = tk.Label(pes0, text = "El resultado de la integral es:", width = "35", height = "1", font = ("Helvetica 14"),  bg="white")
@@ -138,7 +139,7 @@ def main():
         caja2.delete(0, END)
         menuD.set("")
         muestraD.config(text = "")
-        messagebox.showinfo("Informacion", "Los valores ingresados han sido borrados")
+        messagebox.showinfo("Información", "Los valores ingresados han sido borrados")
         cajaInfe.focus_set()
 
     def obtenerD():
@@ -154,10 +155,9 @@ def main():
                     command = limpiarD, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
     boton6 = Button(pes0, text = "Calcular", width = "20", height = "1", font = ("Helvetica 14 bold"),
                     command = obtenerD, foreground = "white", bg = '#007b99', activebackground = 'white', activeforeground = '#007b99')
-    boton7 = Button(pes0, text = "Grafica", width = "20", height = "1", font = ("Helvetica 14 bold"),
-                    command = lambda: graficaES(caja2.get()), foreground = "white", bg = '#007b99', activebackground = 'white', 
-                    activeforeground = '#007b99')
-
+    boton7 = Button(pes0, text = "Gráfica", width = "20", height = "1", font = ("Helvetica 14 bold"),
+                    command = lambda: graficaES(caja2.get(), cajaInfe.get(), cajaSupe.get()), foreground = "white", bg = '#007b99',
+                     activebackground = 'white', activeforeground = '#007b99')
     #ShowWidgets
     def indefi():
         caja1.focus_set()
@@ -228,7 +228,7 @@ def main():
     pes1 = tkinter.Frame(notebook,background="white")
 #--------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
-    fun1=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
+    fun1=tk.Label(pes1,text="Ingrese la función en términos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
     fun1.place(x=10, y=25)
     caj1 = Entry(pes1, width= 45, font = ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
     caj1.place(x=400, y=25)
@@ -237,56 +237,63 @@ def main():
         fun2.place(x=10, y=100)
         caj2.place(x=400, y=100)
 
-    bot2fun = tk.Button(pes1, text="Añadir segunda funcion", width = "20", height = "1", command=sefu 
+    bot2fun = tk.Button(pes1, text="Añadir segunda función", width = "20", height = "1", command=sefu 
     , font = ("Helvetica 14"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     bot2fun.place(x=50, y=60)
-    fun2=tk.Label(pes1,text="Ingrese la funcion en terminos de x: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    fun2=tk.Label(pes1,text="Ingrese la función en términos de x: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     caj2 = Entry(pes1, width= 45, font= ("Helvetica 16"), highlightbackground='#007b99'
     , highlightcolor='#f39200', highlightthickness=3)
     #accion boton
     def pun_cor():
         e1 = caj1.get()
         if not e1:
-            messagebox.showerror("Error", "Ingrese una funcion") 
+            messagebox.showerror("Error", "Ingrese una función") 
         e2 = caj2.get()
         if not e2:
             e2 = 0
         aux1 = puntos_corte(e1, e2)
-        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "35", height = "1"
+        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "45", height = "1"
         , font = ("Helvetica 14"), bg='white')
-        resultPc.place(x=10, y=170)
+        resultPc.place(x=20, y=170)
 
     botpun = tk.Button(pes1, text="Calcular puntos de corte", width = "20", height = "1", command = pun_cor
     , font = ("Helvetica 14") ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     botpun.place(x=50, y=130)
-    liminfe = tk.Label(pes1, text="Ingrese limite inferior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    liminfe = tk.Label(pes1, text="Ingrese límite inferior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     liminfe.place(x=10,y=210)
     caj3 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
     caj3.place(x=400,y=210)
-    limsupe = tk.Label(pes1, text="Ingrese limite superior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+    limsupe = tk.Label(pes1, text="Ingrese límite superior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     limsupe.place(x=10,y=260)
     caj4 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
     caj4.place(x=400,y=260)
+    pru = Balloon(pes1)
+    pru.bind_widget(botpun, balloonmsg = "Ingrese límites en valores enteros o decimales")
     #accion boton
     def are():
         e1 = caj1.get()
         if not e1:
-            messagebox.showerror("Error", "Ingrese una funcion") 
+            messagebox.showerror("Error", "Ingrese una función") 
         e2 = caj2.get()
         if not e2:
             e2 = 0
         l1 = caj3.get()
         l2 = caj4.get()
-        aux2 = area(e1, e2, l1, l2)
-        e1 = aux2[0]
-        e2 = aux2[1]
-        aux3 = aux2[2]
-        funmay = tk.Label(pes1, text="La funcion mayor es: " + str(e1), width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmay.place(x=10,y=380)
-        funmen = tk.Label(pes1, text="La funcion menor es: " + str(e2), width = "35", height = "1", font = ("Helvetica 14"), bg='white')   
-        funmen.place(x=10, y=420) 
-        resulta = tk.Label(pes1, text="El area de la funcion es: " + str(aux3) + " U²", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resulta.place(x=10, y=460)
+        try:
+            l3=float(l1)
+            l4=float(l2)
+            aux2 = area(e1, e2, l1, l2)
+            e1 = aux2[0]
+            e2 = aux2[1]
+            aux3 = aux2[2]
+            funmay = tk.Label(pes1, text="La función mayor es: " + str(e1), width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+            funmay.place(x=20,y=380)
+            funmen = tk.Label(pes1, text="La función menor es: " + str(e2), width = "45", height = "1", font = ("Helvetica 14"), bg='white')   
+            funmen.place(x=20, y=420) 
+            resulta = tk.Label(pes1, text="El área de la función es: " + str(aux3) + " U²", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+            resulta.place(x=20, y=460)
+        except ValueError:
+             messagebox.showerror("Error", "Ingrese los límites en valores enteros o decimales")
 
     botresult = tk.Button(pes1, text="Calcular", width = "20", height = "1",command = are, font = ("Helvetica 14")
                             ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
@@ -296,7 +303,7 @@ def main():
     def gra():
         e1 = caj1.get()
         if not e1:
-            messagebox.showerror("Error", "Ingrese una funcion") 
+            messagebox.showerror("Error", "Ingrese una función") 
         e2 = caj2.get()
         if not e2:
             e2 = 0
@@ -314,14 +321,15 @@ def main():
         caj3.delete(0 , END)
         caj4.delete(0 , END)
         caj1.focus_set()
-        resultPc = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
+        resultPc = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
         resultPc.place(x=20, y=170)
-        funmay = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        funmay.place(x=10,y=380)
-        funmen = tk.Label(pes1, text=" ", width = "35", height = "1", font = ("Helvetica 14"), bg='white') 
-        funmen.place(x=10, y=420)    
-        resulta = tk.Label(pes1, text=" " , width = "35", height = "1", font = ("Helvetica 14"), bg='white')
-        resulta.place(x=10, y=460)
+        funmay = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+        funmay.place(x=20,y=380)
+        funmen = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white') 
+        funmen.place(x=20, y=420)    
+        resulta = tk.Label(pes1, text=" " , width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+        resulta.place(x=20, y=460)
+        messagebox.showinfo("Información", "Los campos fueron limpiados")
 
     botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")
                         ,foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
@@ -347,16 +355,21 @@ def main():
         FuncionMenor.place(x=80, y=500, width=500, height=35)
         ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
         ResultadoVolumen.place(x=500, y=475, width="500", height="35")
-    #FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
+        messagebox.showinfo("Información", "Los campos fueron limpiados")
+#FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
     def Grafica():
         Expresion1 = boxFuncion1.get()
         if not Expresion1:
-            messagebox.showerror("Error", "Ingrese una funcion") 
+            messagebox.showerror("Error", "Ingrese una función") 
         Expresion2 = boxFuncion2.get()
         if not Expresion2:
             Expresion2 = 0
         Limite1 = boxLimi1.get()
+        if not Limite1:
+            messagebox.showerror("Error", "Ingrese el límite inferior")
         Limite2 = boxLimi2.get()
+        if not Limite2:
+            messagebox.showerror("Error", "Ingrese el límite superior")
         Graficar(Expresion1, Expresion2, Limite1, Limite2)
     #FUNCION PARA HACER EL PROCESO DEL CALCULO DEL VOLUMEN 
     def vol():
@@ -368,8 +381,10 @@ def main():
             Expresion2=0 #EN LA CAJA 2 PARA SEGUNDA FUNCIÓN LLEVAR CERO SI NO DIGITÓ NADA
         Limite1=boxLimi1.get()
         if not Limite1:
-            messagebox.showerror("Error", "Ingrese los límites")
+            messagebox.showerror("Error", "Ingrese el límite inferior")
         Limite2=boxLimi2.get()
+        if not Limite2:
+            messagebox.showerror("Error", "Ingrese límite superior")
         auxResultado=volumenTotal(Expresion1,Expresion2,Limite1, Limite2)
         Expresion1 = auxResultado[0]
         Expresion2 = auxResultado[1]
@@ -390,7 +405,7 @@ def main():
     lblLimite1=Label(pes2,text="Ingrese límite inferior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#PRIMER LIMITE (INFERIOR)
     lblLimite1.place(x=230, y=210, width=225, height=30)#POSICIONAMIENTO
 
-    lbllimite2=Label(pes2,text="Ingrese limite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#SEGUNDO LIMITE (SUPERIOR)
+    lbllimite2=Label(pes2,text="Ingrese límite superior:", width = "35", height = "1", font = ("Helvetica 14"), bg='white')#SEGUNDO LIMITE (SUPERIOR)
     lbllimite2.place(x=230, y=290, width=225, height=30)#POSICIONAMIENTO
 
     #CAJAS DE ENTRADA DE FUNCIONES
