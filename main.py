@@ -168,9 +168,9 @@ def main():
         muestraI.place(x = 630, y = 180)
         graficaI.grid(row = 4, column = 0, pady = 10)
         menuI.place(x = 630, y = 245)
-        boton3.grid(row = 6, column= 0, pady = 40)
+        boton3.grid(row = 6, column= 0, pady = 50)
         boton4.grid(row = 6, column= 1)
-        botonGraf.place(x = 540, y = 309)
+        botonGraf.place(x = 540, y = 319)
 
     def defi():
         cajaInfe.focus_set()
@@ -356,7 +356,7 @@ def main():
         ResultadoVolumen = Label(pes2, text="", width="500", height=35, bg='white')
         ResultadoVolumen.place(x=500, y=475, width="500", height="35")
         messagebox.showinfo("Información", "Los campos fueron limpiados")
-#FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
+    #FUNCION QUE GRAFICA CON LAS EXPRESIONES DADAS EN LOS TEXTBOX'S
     def Grafica():
         Expresion1 = boxFuncion1.get()
         if not Expresion1:
@@ -457,10 +457,12 @@ OS: Windows 10 x 64 bits"""
     def about(dialogue):
         messagebox.showinfo("PlyMath", dialogue)
         ventana_about = Toplevel()
+        ventana.iconify()
+        ventana_about.iconbitmap('data/logo.ico')
         ventana_about.config(bg = "white")
         ventana_about.title("About Us")
-        ventana_about.geometry("1300x600")
-        ventana.resizable(1,1)
+        ventana_about.geometry("1300x600+30+50")
+        ventana_about.resizable(1,1)
 
         titu = Label(ventana_about, text = "About Us", width = "15", height = "1", font = ("Helvetica 14 bold"),
                      bg = "white", fg = "orange").place(x = 600, y = 10)
