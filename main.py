@@ -35,39 +35,54 @@ def main():
     notebook.add(pesInicio, text="Inicio")
 
     img1=PhotoImage(file="data/Area.png")
-    img1=img1.subsample(3,3)
+    img1=img1.subsample(4,4)
     lblarea=tk.Label(pesInicio, image=img1, borderwidth=0, highlightthickness=0)
-    lblarea.place(x=40, y= 10)
+    lblarea.place(x=7, y= 10)
 
     img2=PhotoImage(file="data/volumen.png")
-    img2=img2.subsample(3,3)
+    img2=img2.subsample(4,4)
     lblvol=tk.Label(pesInicio, image=img2, borderwidth=0, highlightthickness=0)
-    lblvol.place(x=700, y= 10)
+    lblvol.place(x=900, y= 10)
+
+    separ = tk.Label(pesInicio, text="Generalidades PlyMath", font = ("Helvetica 14 bold"), bg = 'white', foreground='#007b99')
+    separ.place(x=580, y=270)
+    sepa = tk.Label(pesInicio, text="◥█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█◤"
+    , font = ("Helvetica 14"), bg = 'white', foreground='#f39200')
+    sepa.place(x=0, y=300)
 
     img3=PhotoImage(file="data/g1.png")
     img3=img3.subsample(4,4)
     lblg1=tk.Label(pesInicio, image=img3, borderwidth=0, highlightthickness=0)
-    lblg1.place(x=7, y=350)
+    lblg1.place(x=7, y=330)
 
     img4=PhotoImage(file="data/g2.png")
     img4=img4.subsample(4,4)
     lblg2=tk.Label(pesInicio, image=img4, borderwidth=0, highlightthickness=0)
-    lblg2.place(x=455, y=350)
+    lblg2.place(x=455, y=330)
 
     img5=PhotoImage(file="data/g3.png")
     img5=img5.subsample(4,4)
     lblg3=tk.Label(pesInicio, image=img5, borderwidth=0, highlightthickness=0)
-    lblg3.place(x=900, y=350)
+    lblg3.place(x=900, y=330)
+
+    img6=PhotoImage(file="data/syslac.png")
+    img6=img6.subsample(12,12)
+    lblg4=tk.Label(pesInicio, image=img6, borderwidth=0, highlightthickness=0)
+    lblg4.place(x=550, y=80)
     
     def botmore():
         notebook.select(pes3)
 
     botmas = tk.Button(pesInicio, text="Más funciones", width = "20", height = "1",command=botmore, font = ("Helvetica 14")
     ,foreground="black", bg='#f39200', activebackground='white', activeforeground='#f39200')
-    botmas.place(x=120, y=540)
+    botmas.place(x=115, y=520)
 
 
     pes0 = tkinter.Frame(notebook,background="white")
+    img7=PhotoImage(file="data/syslac.png")
+    img7=img6.subsample(2,2)
+    lblg5=tk.Label(pes0, image=img7, borderwidth=0, highlightthickness=0)
+    lblg5.place(x=1190, y=540)
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
         #Ecuacion 
@@ -226,6 +241,8 @@ def main():
     boton2.grid(row = 1, column=1, padx = 8, pady = 30)
 #----------FIN PARTE DE INTEGALES--------------------------------------#
     pes1 = tkinter.Frame(notebook,background="white")
+    lblg5=tk.Label(pes1, image=img7, borderwidth=0, highlightthickness=0)
+    lblg5.place(x=1190, y=540)
 #--------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
     fun1=tk.Label(pes1,text="Ingrese la función en términos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
@@ -336,6 +353,8 @@ def main():
     botelim.place(x=400, y=520)
 #----------------------FIN PARTE DE AREAS----------------------------------
     pes2 = tkinter.Frame(notebook,background="white")
+    lblg5=tk.Label(pes2, image=img7, borderwidth=0, highlightthickness=0)
+    lblg5.place(x=1190, y=540)
 #-------------------------------------INICIO PARTE DE VOLUMEN-----------------------------------------------------------------------#
     notebook.add(pes2, text='Volumen')
     #HABILITAR TEXTBOX PARA SEGUNDA FUNCION    
@@ -447,7 +466,16 @@ def main():
     labelImagen.place(x=70, y=50, width=280, height=445) 
     logo_help = logo_help.subsample(2,2)
     label_logo = Label(pes3, image=logo_help)
-    label_logo.place(x=650, y=50, width=230, height=195) 
+    label_logo.place(x=820, y=50, width=228, height=195) 
+
+    syslac = PhotoImage(file="data\syslac.png")
+    syslac = syslac.subsample(9,9)
+    labelsys = tk.Label(pes3, image = syslac)
+    labelsys.place(x=420, y=70)
+    cienciab = PhotoImage(file="data\cienciasb.png")
+    cienciab = cienciab.subsample(1,1)
+    labelcienci = tk.Label(pes3, image = cienciab)
+    labelcienci.place(x=1100, y=50)
 
     dialogo = """Version: 1.0
 Fecha: 6 de Agosto del 2021 
