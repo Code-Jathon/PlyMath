@@ -90,6 +90,7 @@ def main():
         #Ecuacion 
     def ejem():
         ventana_about = Toplevel()
+        ventana_about.iconbitmap('data/logo.ico')
         ventana_about.config(bg="white")
         ventana_about.title("About Us")
         ventana_about.geometry("1300x600+30+50")
