@@ -81,12 +81,98 @@ def main():
     pes0 = tkinter.Frame(notebook,background="white")
     img7=PhotoImage(file="data/syslac.png")
     img7=img6.subsample(2,2)
-    lblg5=tk.Label(pes0, image=img7, borderwidth=0, highlightthickness=0)
-    lblg5.place(x=1190, y=540)
+
+    refe = tk.Label(pesInicio, text="Fuente: Larson, Ron y Edwards, Bruce (2011). Cálculo.  McGraw-Hill", font = ("Helvetica 14"), bg='white')
+    refe.place(x=760,y=590)
+
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
         #Ecuacion 
+    def ejem():
+        ventana_about = Toplevel()
+        ventana_about.config(bg="white")
+        ventana_about.title("About Us")
+        ventana_about.geometry("1300x600+30+50")
+        ventana_about.resizable(1,1)
+
+        titu = Label(ventana_about, text = "About Us", width = "15", height = "1", font = ("Helvetica 14 bold"),
+                     bg = "white", fg = "orange").place(x = 600, y = 10)
+        contexto = """Plymath es un programa de escritorio creado por estudiantes del semillero SYSLAC que ayuda al fortalecimiento de conocimiento de ciencias basicas. 
+Este programa se centra en temas especificos del calculo integral, como definiciones, y aplicaciones de integrales, además de generar graficas para un 
+mejor entendimiento de los diferentes conceptos. """
+        r1 = Label(ventana_about, text = contexto, width = "115", height = "3", font = ("Helvetica 12 bold"),
+                     bg = "white", fg = "#007b99", justify = tk.LEFT).place(x = 80, y = 40)
+
+        frase = Label(ventana_about, text = "Conoce nuestro equipo", width = 20, height = 1, font = ("Helvetica 14 bold"),
+                     bg = "white", fg = "orange").place(x = 10, y = 115)
+        equipo = ["Camilo Garcia Saldarriaga", 
+                  "Juan Jose Mazo Acevedo", 
+                  "Bryan Arias Quinchia", 
+                  "Sneyder Martinez Caicedo",
+                  "Ingrid Durley Torres Pardo"]
+
+        e1 = Label(ventana_about, text = equipo[0], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 160)
+        e1photo = PhotoImage(file = "data\Camilo.png", master = ventana_about).subsample(8,7)
+        e1_muestra = Label(ventana_about, image = e1photo)
+        e1_muestra.image = e1photo
+        e1_muestra.place(x = 30, y = 190)
+        c = """Desarrollador
+camilo.garciasa@amigo.edu.co"""
+        e1_descripcion = Label(ventana_about, text = c, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e1_descripcion.place(x = 155, y = 190)
+
+        e2 = Label(ventana_about, text = equipo[2], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 20, y = 370)
+        e2photo = PhotoImage(file = "data\Brayan.png", master = ventana_about).subsample(8,7)
+        e2_muestra = Label(ventana_about, image = e2photo)
+        e2_muestra.image = e2photo
+        e2_muestra.place(x = 30, y = 400)
+        b = """Desarrollador
+bryan.ariasqu@amigo.edu.co"""
+        e2_descripcion = Label(ventana_about, text = b, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e2_descripcion.place(x = 150, y = 400)
+
+        e3 = Label(ventana_about, text = equipo[1], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 160)
+        e3photo = PhotoImage(file = "data\Juan.png", master = ventana_about).subsample(8,7)
+        e3_muestra = Label(ventana_about, image = e3photo)
+        e3_muestra.image = e3photo
+        e3_muestra.place(x = 485, y = 190)
+        j = """Desarrollador
+juan.mazoac@amigo.edu.co"""
+        e3_descripcion = Label(ventana_about, text = j, width = 25, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e3_descripcion.place(x = 615, y = 190)
+
+        e4 = Label(ventana_about, text = equipo[3], width = 30, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 475, y = 370)
+        e4photo = PhotoImage(file = "data\Sneyder.png", master = ventana_about).subsample(7,6)
+        e4_muestra = Label(ventana_about, image = e4photo)
+        e4_muestra.image = e4photo
+        e4_muestra.place(x = 485, y = 400)
+        s = """Desarrollador
+sneyder.martinezca@amigo.edu.co"""
+        e4_descripcion = Label(ventana_about, text = s, width = 30, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e4_descripcion.place(x = 615, y = 400)
+
+        e5 = Label(ventana_about, text = equipo[4], width = 25, height = 1, font = ("Helvetica 14"), bg = "white", fg = "orange").place(x = 920, y = 160)
+        e5photo = PhotoImage(file = "data\ingrid.png", master = ventana_about).subsample(8,7)
+        e5_muestra = Label(ventana_about, image = e5photo)
+        e5_muestra.image = e5photo
+        e5_muestra.place(x = 930, y = 190)
+        i = """Docente Investigadora &
+Directora del proyecto.
+ingrid.torrespa@amigo.edu.co"""
+        e5_descripcion = Label(ventana_about, text = i, width = 25, font = ("Helvetica 12"), bg = "white", justify = tk.LEFT, fg = "#007b99")
+        e5_descripcion.place(x = 1055, y = 190)
+
+        d = """Agredecimientos por participacion 
+en el desarollo del proyecto a: 
+David Estrada Jimenez"""
+        plus = Label(ventana_about, text = d, width = 30, height = 4, font = ("Helvetica 14 bold"),
+                     bg = "white", justify = tk.LEFT, fg = "#007b99").place(x = 925, y = 450)
+        
+
     notebook.add(pes0, text='Integrales') 
+    btnab = Button(pes0, image=img7, command = ejem)
+    btnab.place(x=1190, y=540)
+
     ecuaI = tk.Label(pes0, text ="Digite el problema:", width = "35", height = "1", font = ("Helvetica 14"), bg = 'white')
     caja1 = Entry(pes0, width = 40, font = ("Helvetica 16"), highlightbackground = '#007b99', highlightcolor = '#f39200', highlightthickness = 3)
         #Resultado    
@@ -241,8 +327,8 @@ def main():
     boton2.grid(row = 1, column=1, padx = 8, pady = 30)
 #----------FIN PARTE DE INTEGALES--------------------------------------#
     pes1 = tkinter.Frame(notebook,background="white")
-    lblg5=tk.Label(pes1, image=img7, borderwidth=0, highlightthickness=0)
-    lblg5.place(x=1190, y=540)
+    btnac = Button(pes1, image=img7, command = ejem)
+    btnac.place(x=1190, y=540)
 #--------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
     fun1=tk.Label(pes1,text="Ingrese la función en términos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
@@ -251,9 +337,13 @@ def main():
     caj1.place(x=400, y=25)
     #accion boton
     def sefu():
-        fun2.place(x=10, y=100)
-        caj2.place(x=400, y=100)
-
+        e1 = caj1.get()
+        if not e1:
+            messagebox.showerror("Error", "Ingrese una función")
+        else:
+            fun2.place(x=10, y=100)
+            caj2.place(x=400, y=100)
+    
     bot2fun = tk.Button(pes1, text="Añadir segunda función", width = "20", height = "1", command=sefu 
     , font = ("Helvetica 14"),foreground="white", bg='#007b99', activebackground='white', activeforeground='#007b99')
     bot2fun.place(x=50, y=60)
@@ -353,8 +443,8 @@ def main():
     botelim.place(x=400, y=520)
 #----------------------FIN PARTE DE AREAS----------------------------------
     pes2 = tkinter.Frame(notebook,background="white")
-    lblg5=tk.Label(pes2, image=img7, borderwidth=0, highlightthickness=0)
-    lblg5.place(x=1190, y=540)
+    btnac = Button(pes2, image=img7, command = ejem)
+    btnac.place(x=1190, y=540)
 #-------------------------------------INICIO PARTE DE VOLUMEN-----------------------------------------------------------------------#
     notebook.add(pes2, text='Volumen')
     #HABILITAR TEXTBOX PARA SEGUNDA FUNCION    
@@ -485,7 +575,6 @@ OS: Windows 10 x 64 bits"""
     def about(dialogue):
         messagebox.showinfo("PlyMath", dialogue)
         ventana_about = Toplevel()
-        ventana.iconify()
         ventana_about.iconbitmap('data/logo.ico')
         ventana_about.config(bg = "white")
         ventana_about.title("About Us")
@@ -564,7 +653,7 @@ en el desarollo del proyecto a:
 David Estrada Jimenez"""
         plus = Label(ventana_about, text = d, width = 30, height = 4, font = ("Helvetica 14 bold"),
                      bg = "white", justify = tk.LEFT, fg = "#007b99").place(x = 925, y = 450)
-        
+    
     lblManual = Label(pes3, text="Manual de Usuario", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
     lblManual.place(x=400, y=300)
     lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
