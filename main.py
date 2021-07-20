@@ -11,6 +11,7 @@ import tkinter.font as tkFont
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter.tix import *
+import os
 
 def main():
     ventana= Tk()
@@ -82,8 +83,10 @@ def main():
     img7=PhotoImage(file="data/syslac.png")
     img7=img6.subsample(2,2)
 
-    refe = tk.Label(pesInicio, text="Fuente: Larson, Ron y Edwards, Bruce (2011). Cálculo.  McGraw-Hill", font = ("Helvetica 14"), bg='white')
-    refe.place(x=760,y=590)
+    fuente = tk.Label(pesInicio, text="Fuente: ", font = ("Helvetica 14 italic"), bg='white')
+    fuente.place(x=790,y=590)
+    referencia = tk.Label(pesInicio, text="Larson, Ron y Edwards, Bruce (2011). Cálculo.  McGraw-Hill", font = ("Helvetica 12 italic"), bg='white')
+    referencia.place(x=860, y=592)
 
 #--------Desarrollo de la pestaña integrales-----
     #-----------Parte Indefinidas-----------------
@@ -569,9 +572,17 @@ David Estrada Jimenez"""
     labelcienci.place(x=1100, y=50)
 
     dialogo = """Version: 1.0
-Fecha: 6 de Agosto del 2021 
-Python: 3.9.5
-OS: Windows 10 x 64 bits"""
+    Fecha: 6 de Agosto del 2021 
+    Python: 3.9.5
+    OS: Windows 10 x 64 bits"""
+
+    def manual():
+        path="docs\Manual_Usuario_PlyMath.docx"
+        os.system(path)    
+
+    def guia():
+        path="docs\Guía_Pedagogica_PlyMath.docx"
+        os.system(path)
 
     def about(dialogue):
         messagebox.showinfo("PlyMath", dialogue)
@@ -660,10 +671,10 @@ David Estrada Jimenez"""
     lblGuia = Label(pes3, text="Guia Pedagógica", width = "20", height = "1", font = ("Helvetica 20"), bg='white')
     lblGuia.place(x=400, y=400)
     btnAquiManual = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
-                            bg='#007b99', activebackground='white', activeforeground='#007b99')
+                            bg='#007b99', activebackground='white', activeforeground='#007b99', command=manual)
     btnAquiManual.place(x=800, y=300)
     btnAquiGuia = Button(pes3, text="Aquí", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
-                            bg='#007b99', activebackground='white', activeforeground='#007b99')
+                            bg='#007b99', activebackground='white', activeforeground='#007b99', command=guia)
     btnAquiGuia.place(x=800, y= 400)
 
     btnAbout = Button(pes3, text="About", width = "18", height = "0", font = ("Helvetica 16"), foreground="white", 
