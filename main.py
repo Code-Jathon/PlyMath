@@ -577,11 +577,11 @@ David Estrada Jimenez"""
     OS: Windows 10 x 64 bits"""
 
     def manual():
-        path="docs\Manual_Usuario_PlyMath.docx"
+        path="docs\Manual_Usuario_PlyMath.pdf"
         os.system(path)    
 
     def guia():
-        path="docs\Guía_Pedagogica_PlyMath.docx"
+        path="docs\Guía_Pedagogica_PlyMath.pdf"
         os.system(path)
 
     def about(dialogue):
