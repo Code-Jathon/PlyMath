@@ -333,6 +333,10 @@ David Estrada Jimenez"""
     pes1 = tkinter.Frame(notebook,background="white")
     btnac = Button(pes1, image=img7, command = ejem)
     btnac.place(x=1190, y=540)
+    imgejem=PhotoImage(file="data/ejemplo.png")
+    imgejem=imgejem.subsample(1,1)
+    lblvol=tk.Label(pes1, image=imgejem, borderwidth=0, highlightthickness=0)
+    lblvol.place(x=940, y= 0)
 #--------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
     fun1=tk.Label(pes1,text="Ingrese la función en términos de x: ", width="35", height="1", font=("Helvetica 14"), bg='white')
@@ -363,8 +367,7 @@ David Estrada Jimenez"""
         if not e2:
             e2 = 0
         aux1 = puntos_corte(e1, e2)
-        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), width = "45", height = "1"
-        , font = ("Helvetica 14"), bg='white')
+        resultPc = tk.Label(pes1, text="Los puntos de corte son: " + str(aux1), font = ("Helvetica 14"), bg='white')
         resultPc.place(x=20, y=170)
 
     botpun = tk.Button(pes1, text="Calcular puntos de corte", width = "20", height = "1", command = pun_cor
@@ -432,7 +435,7 @@ David Estrada Jimenez"""
         caj3.delete(0 , END)
         caj4.delete(0 , END)
         caj1.focus_set()
-        resultPc = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
+        resultPc = tk.Label(pes1, text=" ", width = "86", height = "1", font = ("Helvetica 14"), bg='white')
         resultPc.place(x=20, y=170)
         funmay = tk.Label(pes1, text=" ", width = "45", height = "1", font = ("Helvetica 14"), bg='white')
         funmay.place(x=20,y=380)
@@ -440,6 +443,8 @@ David Estrada Jimenez"""
         funmen.place(x=20, y=420)    
         resulta = tk.Label(pes1, text=" " , width = "45", height = "1", font = ("Helvetica 14"), bg='white')
         resulta.place(x=20, y=460)
+        lblvol=tk.Label(pes1, image=imgejem, borderwidth=0, highlightthickness=0)
+        lblvol.place(x=949, y= 0)
         messagebox.showinfo("Información", "Los campos fueron limpiados")
 
     botelim = tk.Button(pes1, text="Limpiar", width = "20", height = "1", command = eliminar, font = ("Helvetica 14")

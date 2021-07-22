@@ -1,3 +1,4 @@
+from tkinter.constants import S
 from numpy.lib import math
 from sympy import *
 import sympy
@@ -15,7 +16,7 @@ def puntos_corte(expre_1,expre_2,):
     expre_1 = sympify(expre_1)
     expre_2 = sympify(expre_2)
     aux_puntos = (expre_1)-(expre_2)      
-    solucion = solve(aux_puntos, dict=False)  
+    solucion = solve(aux_puntos, dict=False)
     return solucion
 
 def evaluar(exp1, exp2, l1):
