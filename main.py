@@ -456,6 +456,10 @@ David Estrada Jimenez"""
     btnac.place(x=1190, y=540)
 #-------------------------------------INICIO PARTE DE VOLUMEN-----------------------------------------------------------------------#
     notebook.add(pes2, text='Volumen')
+    imgejem2=PhotoImage(file="data/ejemplo2.png")
+    imgejem2=imgejem2.subsample(2,2)
+    lblvol2=tk.Label(pes2, image=imgejem2, borderwidth=0, highlightthickness=0)
+    lblvol2.place(x=870, y= 0)
     #HABILITAR TEXTBOX PARA SEGUNDA FUNCION    
     def Habilitar():
         boxFuncion2.config(state=NORMAL)
