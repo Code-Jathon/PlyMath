@@ -10,7 +10,6 @@ import tkinter
 import tkinter.font as tkFont
 import tkinter as tk
 from PIL import Image, ImageTk
-from tkinter.tix import *
 import os
 
 def main():
@@ -380,9 +379,7 @@ David Estrada Jimenez"""
     limsupe = tk.Label(pes1, text="Ingrese límite superior: ", width = "35", height = "1", font = ("Helvetica 14"), bg='white')
     limsupe.place(x=10,y=260)
     caj4 = Entry(pes1,width= 45, font= ("Helvetica 16"), highlightbackground='#007b99', highlightcolor='#f39200', highlightthickness=3)
-    caj4.place(x=400,y=260)
-    pru = Balloon(pes1)
-    pru.bind_widget(botpun, balloonmsg = "Ingrese límites en valores enteros o decimales")
+    caj4.place(x=400,y=260) 
     #accion boton
     def are():
         e1 = caj1.get()
