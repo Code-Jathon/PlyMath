@@ -587,7 +587,7 @@ David Estrada Jimenez"""
         os.system(path)    
 
     def guia():
-        path="docs\Guía_Pedagogica_PlyMath.pdf"
+        path="docs\Guia_PlyMath.pdf"
         os.system(path)
 
     def about(dialogue):
