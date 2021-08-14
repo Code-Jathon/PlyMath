@@ -2,7 +2,7 @@
 Integrals, graphing and solutions calculator
 
 # Description 📋:
-PLYMATH is a desktop application that has a simple but friendly environment when developing the main calculation problems II (integral), its approach is based on the need to present some concepts of the calculation area, in a more fun and novel, which contributes to strengthening student learning. PlayMath was created by students of the Systems Engineering career that are members of the SYSLAC seedbed.
+PLYMATH is a desktop application that has a simple but friendly environment when developing the main calculation problems II (integral), its approach is based on the need to present some concepts of the calculation area, in a more fun and novel, which contributes to strengthening student learning. PlyMath was created by students of the Systems Engineering career that are members of the SYSLAC seedbed.
 
 # Target 🚀:
 PlayMath seeks to create a technological and pedagogical link for growth and support in each of the basic science subjects at the university. Within the application, the student and teacher will have a more practical understanding of the methods for solving, for example, volumes, also for the area. This program does not stand out for its step-by-step solution, since it is not intended to replace the teacher at any time, but rather it hopes to become an additional tool to traditional classes, with which it can be shown, discussed and verified results, associated with calculus classes II (Integral).
