@@ -1,6 +1,8 @@
 # PlyMath 📦:
 Integrals, graphing and solutions calculator
 
+Version posterior a IGS-CALCULATOR --> [@IGS-CALCULATOR](https://github.com/Code-Jathon/IGS-CALCULATOR)
+
 # Description 📋:
 PLYMATH is a desktop application that has a simple but friendly environment when developing the main calculation problems II (integral), its approach is based on the need to present some concepts of the calculation area, in a more fun and novel, which contributes to strengthening student learning. PlyMath was created by students of the Systems Engineering career that are members of the SYSLAC seedbed.
 
