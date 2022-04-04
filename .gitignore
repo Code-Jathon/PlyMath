@@ -1,0 +1,8 @@
+# Fotos
+data
+
+# Cache Python
+__pycache__
+
+# Entorno de desarrollo
+.idea
