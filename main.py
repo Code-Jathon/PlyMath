@@ -666,8 +666,8 @@ mauricio.lopezbo@amigo.edu.co"""
     labelcienci = tk.Label(pes3, image=cienciab)
     labelcienci.place(x=1100, y=50)
 
-    dialogo = """Version: 1.0
-    Fecha: 6 de Agosto del 2021 
+    dialogo = """Version: 1.0.1
+    Fecha: 5 de Abril del 2022 
     Python: 3.9.5
     OS: Windows 10 x 64 bits"""
 
