@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.pyplot import legend
 from numpy import *
 from sympy import *
+import numpy as np
 
 
 def ecuacionD(i, s, fx, resp):

@@ -98,7 +98,7 @@ def main():
         ventana_about.iconbitmap('data/logo.ico')
         ventana_about.config(bg="white")
         ventana_about.title("About Us")
-        ventana_about.geometry("1300x600+30+50")
+        ventana_about.geometry("1300x650+30+50")
         ventana_about.resizable(True, True)
 
         Label(ventana_about, text="About Us", width="15", height="1", font="Helvetica 14 bold",
@@ -115,7 +115,8 @@ mejor entendimiento de los diferentes conceptos. """
                   "Juan Jose Mazo Acevedo",
                   "Bryan Arias Quinchia",
                   "Sneyder Martinez Caicedo",
-                  "Ingrid Durley Torres Pardo"]
+                  "Ingrid Durley Torres Pardo",
+                  "Mauricio López Bonilla"]
 
         Label(ventana_about, text=equipo[0], width=25, height=1, font="Helvetica 14", bg="white",
               fg="orange").place(x=20, y=160)
@@ -178,11 +179,31 @@ ingrid.torrespa@amigo.edu.co"""
                                fg="#007b99")
         e5_descripcion.place(x=1055, y=190)
 
-        d = """Agredecimientos por participacion 
-en el desarollo del proyecto a: 
-David Estrada Jimenez"""
-        plus = Label(ventana_about, text=d, width=30, height=4, font="Helvetica 14 bold",
-                     bg="white", justify=tk.LEFT, fg="#007b99").place(x=925, y=450)
+        Label(ventana_about, text=equipo[5], width=25, height=1, font="Helvetica 14", bg="white", justify=tk.LEFT,
+              fg="orange").place(x=920, y=370)
+        e6photo = PhotoImage(file="data\Brayan.png", master=ventana_about).subsample(8, 7)
+        e6_muestra = Label(ventana_about, image=e6photo)
+        e6_muestra.image = e6photo
+        e6_muestra.place(x=930, y=400)
+        m = """Jefe del departamento 
+de Ciencias Basicas
+mauricio.lopezbo@amigo.edu.co"""
+        e6_descripcion = Label(ventana_about, text=m, width=25, font="Helvetica 12", bg="white", justify=tk.LEFT,
+                               fg="#007b99")
+        e6_descripcion.place(x=1055, y=400)
+
+        Label(ventana_about, text="Agredecimientos a:", width=20, height=1, font="Helvetica 13 bold",
+              bg="white", justify=tk.LEFT, fg="orange").place(x=5, y=550)
+
+        d = """ David Estrada Jimenez
+         por participación en el desarrollo del proyecto."""
+        Label(ventana_about, text=d, width=40, height=2, font="Helvetica 12",
+              bg="white", justify=tk.LEFT, fg="#007b99").place(x=40, y=575)
+
+        jjd = """Juan Jose Hoyos Eusse
+         por ser el docente promotor del proyecto."""
+        Label(ventana_about, text=jjd, width=35, height=2, font="Helvetica 12",
+              bg="white", justify=tk.LEFT, fg="#007b99").place(x=430, y=575)
 
     notebook.add(pes0, text='Integrales')
     btnab = Button(pes0, image=img7, command=ejem)
@@ -210,7 +231,7 @@ David Estrada Jimenez"""
         respuesta = menuI.get()
         menuI.select_clear()
         solucion = muestraI.cget("text")
-        prueba2 = graficaIS(funcion, solucion, respuesta)
+        graficaIS(funcion, solucion, respuesta)
 
     def limpiarI():
         caja1.delete(0, END)
@@ -365,6 +386,7 @@ David Estrada Jimenez"""
     imgejem = imgejem.subsample(1, 1)
     lblvol = tk.Label(pes1, image=imgejem, borderwidth=0, highlightthickness=0)
     lblvol.place(x=940, y=0)
+
     # --------Desarrollo de la pestaña Areas--------
     notebook.add(pes1, text='Área')
     fun1 = tk.Label(pes1, text="Ingrese la función en términos de x: ", width="35", height="1", font="Helvetica 14",
@@ -432,8 +454,8 @@ David Estrada Jimenez"""
         l1 = caj3.get()
         l2 = caj4.get()
         try:
-            l3 = float(l1)
-            l4 = float(l2)
+            float(l1)
+            float(l2)
             aux2 = area(e1, e2, l1, l2)
             e1 = aux2[0]
             e2 = aux2[1]
@@ -769,12 +791,12 @@ mauricio.lopezbo@amigo.edu.co"""
         Label(ventana_about, text="Agredecimientos a:", width=20, height=1, font="Helvetica 13 bold",
               bg="white", justify=tk.LEFT, fg="orange").place(x=5, y=550)
 
-            # d
+            # David
         d = """ David Estrada Jimenez
  por participación en el desarrollo del proyecto."""
         Label(ventana_about, text=d, width=40, height=2, font="Helvetica 12",
               bg="white", justify=tk.LEFT, fg="#007b99").place(x=40, y=575)
-
+            # Juan Jose Docente
         jjd = """Juan Jose Hoyos Eusse
  por ser el docente promotor del proyecto."""
         Label(ventana_about, text=jjd, width=35, height=2, font="Helvetica 12",
