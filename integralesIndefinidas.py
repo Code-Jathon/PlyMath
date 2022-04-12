@@ -31,14 +31,14 @@ def graficaIS(fx, sol, resp):  # Menu Despegable
 
     if resp == "Sí.":
         s = plot(sol, legend=True, show=False)
-        s.title = "Gráfica integral definida"
+        s.title = "Gráfica integral indefinida"
         s.xlabel = '$Eje X$'
         s[0].line_color = 'orange'
         s.show()
 
-    elif resp == "Sí, mostrando la gráfica de la función.":
+    elif resp == "Sí, mostrando la gráfica de la función ingresada.":
         s = plot(fx, sol, legend=True, show=False)
-        s.title = "Gráfica integral definida & su función"
+        s.title = "Gráfica integral indefinida & su función"
         s[0].line_color = '#007b99'
         s[1].line_color = 'orange'
         s.show()

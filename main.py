@@ -222,7 +222,7 @@ mauricio.lopezbo@amigo.edu.co"""
     # Menu Despegable
     menuI = ttk.Combobox(pes0, width=35, font="Helvetica 18", state="readonly", foreground="#007b99",
                          values=["Sí.",
-                                 "Sí, mostrando la gráfica de la función."])
+                                 "Sí, mostrando la gráfica de la función ingresada."])
     menuI.current()  # Valor por defectos
 
     # Botones de verificacion
